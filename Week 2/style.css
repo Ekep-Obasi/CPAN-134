@@ -1,0 +1,7 @@
+custom-html-tag {
+    color: red;
+}
+
+custom-html-tag[color="blue"] {
+    color: blue;
+}
