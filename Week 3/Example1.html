@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 3 - Example 1</title>
+  </head>
+  <body>
+    <!-- <a href="URL">Link Text</a> -->
+
+    <!-- 
+    _self: Load the URL into the same browsing context as the current one. This is the default behavior.
+    _blank: Load the URL into a new browsing context. This is usually a tab, but users can configure browsers to use new windows instead.
+    _parent: Load the URL into the parent browsing context of the current one. If there is no parent, this behaves the same way as _self.
+    _top: Load the URL into the top-level browsing context (that is, the "highest" browsing context that is an ancestor of the current one, and has no parent). 
+    -->
+
+    Example:
+    <a href="https://www.example.com" target="_parent">Visit Example</a>
+
+    <h3>My Favourite Websites</h4>
+
+    <ul>
+        <li><a href="https://www.google.ca">Google</a></li>
+        <li><a href="https://www.cbc.ca" target="_blank">CBC</a></li>
+        <li><a href="https://humber.ca">Humber College</a></li>
+    </ul>
+  </body>
+</html>
