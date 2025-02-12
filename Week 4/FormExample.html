@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<head>
+  <title>HTML Forms Example</title>
+</head>
+<body>
+  <form>
+    
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+         <input type="email" id="email" name="email"><br><br>
+    </fieldset>
+
+    <label>Gender:</label>
+
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+
+    <label for="interests">Interests:</label>
+    
+    <input type="checkbox" id="coding" name="interest" value="coding">
+    <label for="coding">Coding</label>
+    
+    <input type="checkbox" id="sports" name="interest" value="sports">
+    <label for="sports">Sports</label><br><br>
+
+    <label for="birthday">Date of Birth:</label>
+    <input type="date" id="birthday" name="birthday"><br><br>
+    <input type = "reset" value="Reset">
+    <input type = "submit" value="Submit">
+  </form>
+
+  <script type="text/javascript">
+
+    const formElement = document.querySelector("form");
+
+    formElement.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        console.log(e.target)
+    });
+  </script>
+</body>
+</html>

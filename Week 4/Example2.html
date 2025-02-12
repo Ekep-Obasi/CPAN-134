@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Job Application Form</title>
+
+</head>
+
+<body>
+
+  <h2>Job Application Form</h2>
+
+  <form>
+
+    <!-- Text Input -->
+
+    <label for="full-name">Full Name:</label>
+
+    <input type="text" id="full-name" name="full-name" required><br><br>
+
+
+
+    <!-- Email Input -->
+
+    <label for="email">Email:</label>
+
+    <input type="email" id="email" name="email" required><br><br>
+
+
+
+    <!-- Phone Number Input -->
+
+    <label for="phone">Phone Number:</label>
+
+    <input type="tel" id="phone" name="phone" placeholder="123-456-7890" required><br><br>
+
+
+
+    <!-- File Upload Input -->
+
+    <label for="resume">Upload Resume (PDF only):</label>
+
+    <input type="file" id="resume" name="resume" accept=".pdf" required><br><br>
+
+
+
+    <!-- Dropdown (Select) -->
+
+    <label for="position">Select Position:</label>
+
+    <select id="position" name="position">
+
+      <option value="developer">Software Developer</option>
+
+      <option value="designer">UI/UX Designer</option>
+
+      <option value="manager">Project Manager</option>
+
+    </select><br><br>
+
+
+
+    <!-- Range Input (Experience in years) -->
+
+    <label for="experience">Years of Experience:</label>
+
+    <input type="range" id="experience" name="experience" min="0" max="20" step="1" value="5">
+
+    <span id="experience-value">5</span> years<br><br>
+
+
+
+    <!-- Color Picker Input -->
+
+    <label for="fav-color">Preferred Team Color:</label>
+
+    <input type="color" id="fav-color" name="fav-color"><br><br>
+
+
+
+    <!-- Submit Button -->
+
+    <input type="submit" value="Apply">
+
+  </form>
+
+
+
+  <script>
+
+    // Update range value display
+
+    document.getElementById("experience").addEventListener("input", function() {
+
+      document.getElementById("experience-value").textContent = this.value;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
