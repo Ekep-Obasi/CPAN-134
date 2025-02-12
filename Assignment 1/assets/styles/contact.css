@@ -1,0 +1,33 @@
+.contact-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.contact-content table th,
+.contact-content table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.contact-content table th {
+  background-color: #f4f4f4;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}

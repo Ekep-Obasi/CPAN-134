@@ -1,0 +1,39 @@
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+  }
+
+  main > h1 {
+    text-align: center;
+  }
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-primary);
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1rem;
+  margin: 2rem 0;
+  color: var(--text-secondary);
+}

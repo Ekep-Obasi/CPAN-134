@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testify Dashboard Project</title>
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Testify Dashboard</h1>
+
+      <section class="projects-content">
+        <h3>Project List</h3>
+        <ul>
+          <li>Testify</li>
+          <li>Nous Travels</li>
+        </ul>
+
+        <p>
+          Check out my
+          <a
+            href="https://github.com/Ekep-Obasi"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub profile</a
+          >
+          for more projects and code samples.
+        </p>
+      </section>
+
+      <section class="project-intro">
+        <img
+          src="./assets/images/testifty.png"
+          alt="Testify Logo"
+          class="project-logo"
+        />
+        <p>
+          The Testify Dashboard is a modern web application built to provide an
+          intuitive interface for users to collect, manage, and share
+          testimonials. Utilizing the Next.js framework, this frontend is
+          designed for seamless user experience. <br />
+          <a
+            href="https://testify.cool"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Visit Now!</a
+          >
+        </p>
+      </section>
+
+      <section>
+        <figure>
+          <img
+            src="./assets/images/demo.gif"
+            alt="Testify"
+            class="project-image"
+          />
+          <figcaption>Testify Demo</figcaption>
+        </figure>
+
+        <audio controls>
+          <source
+            src="./assets/audio/audio.mp3"
+            type="audio/mp3"
+          />
+          Your browser does not support the audio element.
+        </audio>
+      </section>
+
+      <section class="features">
+        <h2>Features</h2>
+        <ul>
+          <li>
+            User Authentication: Seamless signup and login processes, including
+            options for password recovery.
+          </li>
+          <li>
+            Dashboard: An interactive dashboard for managing testimonials,
+            projects, and settings.
+          </li>
+          <li>
+            Responsive Design: Optimized for both desktop and mobile devices.
+          </li>
+          <li>
+            Customizable: Users can personalize their experience and manage
+            their profiles easily.
+          </li>
+          <li>
+            Project Management: Create projects to organize and manage
+            testimonials and forms.
+          </li>
+          <li>
+            Testimonial Importing: Import testimonials manually by pasting links
+            to the sources (e.g., Twitter posts).
+          </li>
+          <li>
+            Form Customization: Create and fully customize forms to collect
+            testimonials from clients.
+          </li>
+          <li>
+            Embed Features: Embed forms and testimonials on external sites using
+            a provided embed script.
+          </li>
+          <li>
+            Social Media Content Generation: Generate image posts and video
+            compilations with the testimonials collected.
+          </li>
+        </ul>
+      </section>
+
+      <section class="tech-stack">
+        <h2>Tech Stack</h2>
+        <ul>
+          <li>Framework: Next.js (with TypeScript)</li>
+          <li>Styling: Tailwind CSS</li>
+          <li>State Management: TanStack React Query</li>
+          <li>
+            API Integration: Axios for communicating with the Testify backend
+          </li>
+          <li>Video Generation: Remotion for video compilations</li>
+          <li>Data Fetching: TanStack React Query</li>
+        </ul>
+      </section>
+
+      <section class="installation">
+        <h2>Installation</h2>
+        <ol>
+          <li>
+            <h3>Clone the Repository:</h3>
+            <pre><code>git clone https://github.com/Ekep-Obasi/app.testify.git
+cd app.testify</code></pre>
+          </li>
+          <li>
+            <h3>Install Dependencies:</h3>
+            <pre><code>pnpm install</code></pre>
+          </li>
+          <li>
+            <h3>Set Up Environment Variables:</h3>
+            <p>
+              Copy .env.example to .env and add the required configurations.
+            </p>
+            <pre><code>cp .env.example .env</code></pre>
+          </li>
+          <li>
+            <h3>Start the Development Server:</h3>
+            <pre><code>pnpm run dev</code></pre>
+            <p>
+              The application should now be running at http://localhost:3000.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="usage">
+        <h2>Usage</h2>
+        <p>Once the application is up, users can:</p>
+        <ul>
+          <li>Register or log in to their accounts.</li>
+          <li>Access the dashboard to manage testimonials and projects.</li>
+          <li>
+            Create a project under which they can organize and manage
+            testimonials and forms.
+          </li>
+          <li>
+            Import testimonials manually by pasting the link to the source
+            (e.g., a link to a Twitter post).
+          </li>
+          <li>
+            Create and fully customize forms which they can send to their
+            clients to collect testimonials.
+          </li>
+          <li>
+            Embed forms and testimonials using a provided embed script for
+            seamless integration.
+          </li>
+          <li>
+            Generate social media content, such as image posts and video
+            compilations, using the testimonials collected.
+          </li>
+        </ul>
+        <p>
+          For further details on the functionalities, refer to the documentation
+          within the application.
+        </p>
+      </section>
+
+      <section class="license">
+        <h2>License</h2>
+        <p>
+          This project is licensed under the MIT License. See the LICENSE file
+          for more details.
+        </p>
+        <p>
+          <strong>Note:</strong> This software is intended for educational and
+          non-commercial use only. Using it for proprietary or commercial
+          purposes is prohibited without explicit permission from the authors.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
