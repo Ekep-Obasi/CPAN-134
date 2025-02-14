@@ -1,0 +1,42 @@
+/* External CSS */
+a {
+    color: blue;
+    font-size: 18px;
+    text-decoration: none;
+}
+ 
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: purple;
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    color: orange;
+}
+
+/* Paragraph styles */
+.highlight {
+    background-color: yellow;
+    padding: 5px;
+}
+
+#special {
+    color: red;
+    font-weight: bold;
+}
+
+.inline-style {
+    color: green;
+}
+
+.new-color {
+    color: navy;
+    font-style: italic;
+}
+
+/* Link styles */
