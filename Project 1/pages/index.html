@@ -3,9 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>La Bella Cucina | Authentic Italian Dining</title>
+    <meta
+      name="description"
+      content="Experience authentic Italian cuisine in the heart of the city at La Bella Cucina. Fresh ingredients, traditional recipes, and elegant atmosphere."
+    />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
-    
+    <header class="main-header">
+      <div class="header-top">
+        <div class="contact-info">
+          <span>📞 (555) 123-4567</span>
+          <span>📍 123 Italian Street, New York</span>
+        </div>
+        <div class="reservation-button">
+          <a href="contact.html" class="btn btn-primary">Make a Reservation</a>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="La Bella Cucina Logo" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Welcome to La Bella Cucina</h1>
+          <p class="hero-subtitle">
+            Experience authentic Italian cuisine in the heart of the city
+          </p>
+          <div class="hero-cta">
+            <a href="#menu" class="btn btn-primary">View Menu</a>
+            <a href="contact.html" class="btn btn-secondary">Book a Table</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="specialties">
+        <h2 class="section-title">Our Specialties</h2>
+        <div class="specialties-grid">
+          <div class="specialty-card">
+            <img src="../assets/images/pasta-dish.avif" alt="Pasta Dish" />
+            <h3>Handmade Pasta</h3>
+            <p>Fresh pasta made daily using traditional techniques</p>
+          </div>
+          <div class="specialty-card">
+            <img
+              src="../assets/images/wine-section.avif"
+              alt="Wine Selection"
+            />
+            <h3>Fine Wines</h3>
+            <p>Curated selection of Italian wines</p>
+          </div>
+          <div class="specialty-card">
+            <img
+              src="../assets/images/corn-desserts.avif"
+              alt="Italian Desserts"
+            />
+            <h3>Authentic Desserts</h3>
+            <p>Traditional Italian sweets made in-house</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="today-special" id="menu">
+        <div class="special-content">
+          <h2>Special of the Day</h2>
+          <div class="special-details">
+            <img
+              src="../assets/images/special-dish.avif"
+              alt="Special dish of the day"
+            />
+            <div class="special-text">
+              <h3>Truffle Risotto</h3>
+              <p>Made with imported Italian truffles and aged Parmesan</p>
+              <span class="price">$32</span>
+              <a href="#" class="btn btn-secondary">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ambience">
+        <h2>Experience Our Atmosphere</h2>
+        <div class="ambience-content">
+          <div class="music-player">
+            <h3>Tonight's Jazz Selection</h3>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/3h44hblfOL0?si=GYFZKtJ61x1ujRNV"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="live-music-schedule">
+            <h3>Live Music Schedule</h3>
+            <ul>
+              <li>Thursday: Jazz Trio</li>
+              <li>Friday: Classical Piano</li>
+              <li>Saturday: Italian Opera</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <h2>What Our Guests Say</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial">
+            <p>
+              "Best Italian food outside of Italy. The atmosphere is perfect!"
+            </p>
+            <cite>- Maria C.</cite>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Location</h3>
+          <p>123 Italian Street</p>
+          <p>New York, NY 10001</p>
+          <p>📞 (555) 123-4567</p>
+        </div>
+        <div class="footer-section">
+          <h3>Hours</h3>
+          <p>Monday - Thursday: 11am - 10pm</p>
+          <p>Friday - Saturday: 11am - 11pm</p>
+          <p>Sunday: 11am - 9pm</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Twitter</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 La Bella Cucina. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

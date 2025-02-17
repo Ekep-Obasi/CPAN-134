@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Bella Cucina | Contact</title>
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-top">
+        <div class="contact-info">
+          <span>📞 (555) 123-4567</span>
+          <span>📍 123 Italian Street, New York</span>
+        </div>
+        <div class="reservation-button">
+          <a href="contact.html" class="btn btn-primary">Make a Reservation</a>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="La Bella Cucina Logo" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+          <div class="hero-content">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you</p>
+          </div>
+        </section>
+  
+        <section class="contact-container">
+          <div class="contact-info-card">
+            <div class="info-section">
+              <h3>📍 Visit Us</h3>
+              <p>123 Italian Street</p>
+              <p>New York, NY 10001</p>
+            </div>
+            
+            <div class="info-section">
+              <h3>📞 Call Us</h3>
+              <p>Phone: (555) 123-4567</p>
+              <p>Mobile: (555) 987-6543</p>
+            </div>
+            
+            <div class="info-section">
+              <h3>⏰ Hours</h3>
+              <p>Mon-Thu: 11am - 10pm</p>
+              <p>Fri-Sat: 11am - 11pm</p>
+              <p>Sun: 11am - 9pm</p>
+            </div>
+  
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=..." 
+                width="100%" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+  
+          <div class="contact-form-container">
+            <h2>Make a Reservation</h2>
+            <form action="#" method="POST" class="reservation-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name*</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+  
+                <div class="form-group">
+                  <label for="email">Email Address*</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number*</label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+  
+                <div class="form-group">
+                  <label for="reservation-date">Preferred Date*</label>
+                  <input type="date" id="reservation-date" name="reservation-date" required />
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="time">Preferred Time*</label>
+                  <select id="time" name="time" required>
+                    <option value="">Select a time</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                  </select>
+                </div>
+  
+                <div class="form-group">
+                  <label for="guests">Number of Guests*</label>
+                  <select id="guests" name="guests" required>
+                    <option value="">Select number of guests</option>
+                    <option value="1">1 person</option>
+                    <option value="2">2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="4">4 people</option>
+                    <option value="5+">5+ people</option>
+                  </select>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="occasion">Special Occasion</label>
+                <select id="occasion" name="occasion">
+                  <option value="">Select occasion (optional)</option>
+                  <option value="birthday">Birthday</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="business">Business Dinner</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+  
+              <div class="form-group">
+                <label for="message">Special Requests or Notes</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+              </div>
+  
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="newsletter" id="newsletter">
+                  Sign up for our newsletter to receive special offers
+                </label>
+              </div>
+  
+              <button type="submit" class="btn btn-primary">Submit Reservation</button>
+            </form>
+          </div>
+        </section>
+  
+        <section class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>What is your cancellation policy?</h3>
+              <p>We require 24-hour notice for cancellations. Late cancellations may incur a fee.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Do you accommodate dietary restrictions?</h3>
+              <p>Yes, please note any dietary requirements in the special requests section.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Location</h3>
+          <p>123 Italian Street</p>
+          <p>New York, NY 10001</p>
+          <p>📞 (555) 123-4567</p>
+        </div>
+        <div class="footer-section">
+          <h3>Hours</h3>
+          <p>Monday - Thursday: 11am - 10pm</p>
+          <p>Friday - Saturday: 11am - 11pm</p>
+          <p>Sunday: 11am - 9pm</p>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">Twitter</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 La Bella Cucina. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
