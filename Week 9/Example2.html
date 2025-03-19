@@ -1,0 +1,18 @@
+<html>
+  <head> </head>
+
+  <body>
+    <button onclick="removeElement()">Remove Paragraph</button>
+
+    <div id="container">
+      <p id="p1">Should disappear when button is clicked</p>
+    </div>
+  </body>
+
+  <script>
+    function removeElement() {
+      let element = document.getElementById("p1");
+      element.remove();
+    }
+  </script>
+</html>

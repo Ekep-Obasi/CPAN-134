@@ -1,0 +1,39 @@
+<html>
+  <head> </head>
+
+  <body>
+    <script>
+      let fruits = ["Apple", "Banana", "Cherry"];
+
+      let numbers = new Array(1, 2, 3, 4, 5);
+
+      console.log(fruits[0]); // Outputs: Apple
+
+      console.log(numbers[2]); // Outputs: 3
+
+      fruits.push("Orange");
+
+      console.log(fruits); // ["Apple", "Banana", "Cherry", "Orange"]
+
+      fruits.pop();
+
+      console.log(fruits); // ["Apple", "Banana", "Cherry"]
+
+      console.log(fruits.length); // Outputs: 3
+
+      let sentence = fruits.join(", ");
+
+      console.log(sentence); // Outputs: "Apple, Banana, Cherry"
+
+      let colors = ["Red", "Green", "Blue"];
+
+      for (let i = 0; i < colors.length; i++) {
+        console.log(colors[i]);
+      }
+
+      let mixArray = [42, "Hello", true];
+
+      console.log(mixArray[1]); // Outputs: Hello
+    </script>
+  </body>
+</html>
