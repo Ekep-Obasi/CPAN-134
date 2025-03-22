@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Programming & Design - Course Materials</title>
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #34495e;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f7fa;
+        color: var(--dark-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      .section {
+        background: white;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+        border-bottom: 2px solid var(--light-color);
+        padding-bottom: 10px;
+      }
+
+      .section-title i {
+        margin-right: 10px;
+        color: var(--primary-color);
+      }
+
+      .lab-grid,
+      .assignment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .lab-item,
+      .assignment-item {
+        background: linear-gradient(
+          to right,
+          rgba(52, 152, 219, 0.1),
+          rgba(52, 152, 219, 0.05)
+        );
+        padding: 15px 20px;
+        border-radius: 6px;
+        border-left: 4px solid var(--primary-color);
+        transition: transform 0.2s;
+      }
+
+      .lab-item:hover,
+      .assignment-item:hover {
+        transform: translateX(5px);
+      }
+
+      .assignment-item {
+        background: linear-gradient(
+          to right,
+          rgba(231, 76, 60, 0.1),
+          rgba(231, 76, 60, 0.05)
+        );
+        border-left: 4px solid var(--accent-color);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: var(--secondary-color);
+        color: white;
+        margin-top: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .lab-grid,
+        .assignment-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Web Programming & Design</h1>
+        <div class="subtitle">Semester 1 Course Materials</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Labs Section -->
+      <section class="section">
+        <div class="section-title">
+          <h2>Laboratory Sessions</h2>
+        </div>
+        <div class="lab-grid">
+          <div class="lab-item">
+            <h3>Lab 6</h3>
+            <p>CSS Lab</p>
+            <a href="/Lab 6/index.html">View</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Assignments Section -->
+      <section class="section">
+        <div class="section-title">
+          <h2>Course Assignments</h2>
+        </div>
+        <div class="assignment-grid">
+          <div class="assignment-item">
+            <h3>Assignment 1</h3>
+            <p>Personal Portfolio Website</p>
+            <a href="/Assignment 1/index.html">View Assignment Details</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Course Projects</h2>
+        </div>
+        <div class="assignment-grid">
+          <div class="assignment-item">
+            <h3>Project 1</h3>
+            <p>Personal Portfolio Website</p>
+            <a href="/Project 1/pages/index.html">View Assignment Details</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Web Programming & Design | Humber Polytech</p>
+      </div>
+    </footer>
+  </body>
+</html>

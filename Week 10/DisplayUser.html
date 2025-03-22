@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JS Functions & Objects Example</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      #user-list {
+        margin-top: 10px;
+      }
+
+      .user-item {
+        margin-bottom: 5px;
+      }
+
+      .remove-btn {
+        margin-left: 10px;
+        font-size: 0.8em;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>User List</h2>
+
+    <ul id="user-list"></ul>
+
+    <h3>Add a User</h3>
+
+    <input type="text" id="user-name" placeholder="Enter name" />
+
+    <button id="add-user-btn">Add User</button>
+    <button id="clear-users-btn">Clear Users</button>
+
+    <script>
+      // Define an object to manage users
+
+      const app = {
+        users: ["Alice", "Bob", "Charlie"], // Initial list
+
+        // Function to display users on the page
+
+        displayUsers: function () {
+          const userList = document.getElementById("user-list");
+
+          userList.innerHTML = ""; // Clear previous content
+
+          this.users.forEach((user, index) => {
+            const li = document.createElement("li");
+
+            li.className = "user-item";
+
+            // Display user with number
+            li.textContent = `${index + 1}. ${user}`;
+
+            // Add remove button
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.className = "remove-btn";
+            removeBtn.addEventListener("click", () => {
+              this.removeUser(index);
+            });
+
+            li.appendChild(removeBtn);
+            userList.appendChild(li);
+          });
+        },
+
+        // Function to add a user
+
+        addUser: function () {
+          const input = document.getElementById("user-name");
+
+          const name = input.value.trim();
+
+          if (name) {
+            // Check for duplicates (case-insensitive)
+            const nameLower = name.toLowerCase();
+            const isDuplicate = this.users.some(
+              (user) => user.toLowerCase() === nameLower
+            );
+
+            if (isDuplicate) {
+              alert("This name already exists in the list!");
+            } else {
+              this.users.push(name); // Add to the list
+
+              input.value = ""; // Clear input field
+
+              this.displayUsers(); // Update UI
+            }
+          } else {
+            alert("Please enter a name.");
+          }
+        },
+
+        // Function to clear all users
+        clearUsers: function () {
+          this.users = [];
+          this.displayUsers();
+        },
+
+        // Function to remove a specific user
+        removeUser: function (index) {
+          this.users.splice(index, 1);
+          this.displayUsers();
+        },
+      };
+
+      // Initialize user list on page load
+
+      app.displayUsers();
+
+      // Attach event listeners to buttons
+
+      document
+        .getElementById("add-user-btn")
+        .addEventListener("click", function () {
+          app.addUser();
+        });
+
+      document
+        .getElementById("clear-users-btn")
+        .addEventListener("click", function () {
+          app.clearUsers();
+        });
+    </script>
+  </body>
+</html>
