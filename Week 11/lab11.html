@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects and Rest Parameters - Lab 11</title>
+</head>
+<body>
+    <h2>Lab 11: Objects and Rest Parameters</h2>
+    
+    <h2>Student Object Results:</h2>
+    <div id="student-output"></div>
+    
+    <h2>Calculate Average Results:</h2>
+    <div id="average-output"></div>
+
+    <script>
+        const student = {
+            name: "Ekep Obasi",
+            age: 20,
+            subjects: ["Web Programming", "Database Design", "Fundamentals of Javascript"],
+            
+            addSubject: function(subject) {
+                this.subjects.push(subject);
+            },
+            
+            displayInfo: function() {
+                console.log(`Name: ${this.name}`);
+                console.log(`Age: ${this.age}`);
+                console.log("Subjects:", this.subjects.join(", "));
+                
+                return `
+                    <p>Name: ${this.name}</p>
+                    <p>Age: ${this.age}</p>
+                    <p>Subjects: ${this.subjects.join(", ")}</p>
+                `;
+            }
+        };
+
+        function calculateAverage(...scores) {
+            if (scores.length === 0) return 0;
+            
+            const sum = scores.reduce((total, score) => total + score, 0);
+            return sum / scores.length;
+        }
+
+        student.addSubject("Operating Systems");
+        document.getElementById("student-output").innerHTML = student.displayInfo();
+        student.displayInfo();
+
+        const testScores1 = [85, 90, 78, 92, 88];
+        const average1 = calculateAverage(...testScores1);
+        console.log(`Average score: ${average1}`);
+        
+        const testScores2 = [75, 82, 91];
+        const average2 = calculateAverage(...testScores2);
+        console.log(`Average score: ${average2}`);
+
+        document.getElementById("average-output").innerHTML = `
+            <p>Test Scores Set 1: ${testScores1.join(", ")}</p>
+            <p>Average: ${average1.toFixed(2)}</p>
+            <p>Test Scores Set 2: ${testScores2.join(", ")}</p>
+            <p>Average: ${average2.toFixed(2)}</p>
+            <p>Check console for additional output</p>
+        `;
+    </script>
+</body>
+</html>

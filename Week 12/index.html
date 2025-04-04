@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Profile Card</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .profile-img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        border: 5px solid white;
+      }
+      .social-icons i {
+        font-size: 1.5rem;
+        margin: 0 10px;
+        color: #6c757d;
+        transition: color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#"
+          >👨🏾‍💻 EKEP<span class="text-warning"> OBASI</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Profile Card Section -->
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+          <div class="card profile-card bg-white">
+            <div class="card-body text-center p-4">
+              <div class="mb-4">
+                <img
+                  src="https://github.com/Ekep-Obasi.png"
+                  class="rounded-circle profile-img"
+                  alt="Profile Image"
+                />
+              </div>
+              <h3 class="card-title fw-bold">Ekep Obasi</h3>
+              <p class="text-muted mb-1">Software Developer</p>
+              <p class="card-text mb-4">
+                Passionate software developer creating elegant solutions with
+                modern frameworks. Focused on system design and microservices
+              </p>
+
+              <div class="social-icons mb-4">
+                <a href="http://x.com/@ArreyEkep" target="_blank"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Ekep-Obasi"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="https://medium.com/@arreyettaekep" target="_blank"
+                  ><i class="fab fa-medium"></i
+                ></a>
+              </div>
+
+              <a href="mailto:arreyettaekep@gmail.com">
+                <button class="btn btn-primary btn-lg px-5">Connect</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
