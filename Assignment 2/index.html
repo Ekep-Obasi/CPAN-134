@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 2</title>
+    <title>Assignment 2 - Page 1</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Assignment 2</h1>
+        <h1>Assignment 2 - JavaScript Basics</h1>
+        <nav class="page-navigation">
+            <ul>
+                <li class="active"><a href="index.html">Page 1: Basics & Events</a></li>
+                <li><a href="interactive.html">Page 2: DOM & CSS Box Model</a></li>
+            </ul>
+        </nav>
         
         <section id="part1">
             <h2>Part 1: JavaScript Basics</h2>
@@ -18,31 +24,16 @@
         
         <section id="part2">
             <h2>Part 2: Event Handling</h2>
+            <p>Click the button below to display an alert and change its color:</p>
             <button id="colorButton">Click Me!</button>
         </section>
         
-        <section id="part3">
-            <h2>Part 3: DOM Manipulation</h2>
-            <p>Click on any list item to change its text to random characters:</p>
-            <ul id="dynamicList">
-                <li>First item</li>
-                <li>Second item</li>
-                <li>Third item</li>
-            </ul>
-        </section>
-        
-        <section id="part4">
-            <h2>Part 4: CSS Box Model</h2>
-            <p>Click on the box to change its background color. Hover to change the border color.</p>
-            <div id="boxModel">
-                <p>CSS Box Model Example</p>
-            </div>
-        </section>
+        <footer>
+            <p>Go to <a href="interactive.html">Page 2: DOM Manipulation & CSS Box Model</a></p>
+        </footer>
     </div>
 
     <script src="scripts/part1.js"></script>
     <script src="scripts/part2.js"></script>
-    <script src="scripts/part3.js"></script>
-    <script src="scripts/part4.js"></script>
 </body>
 </html>

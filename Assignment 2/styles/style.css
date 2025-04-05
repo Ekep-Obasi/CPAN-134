@@ -33,6 +33,55 @@ h2 {
     color: #444;
 }
 
+/* Navigation Styles */
+.page-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.page-navigation li {
+    flex: 1;
+    text-align: center;
+}
+
+.page-navigation a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.page-navigation a:hover {
+    background-color: #e0e0e0;
+}
+
+.page-navigation .active a {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+footer a {
+    color: #2196F3;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* Part 2 Styles */
 #colorButton {
     padding: 10px 20px;
@@ -53,19 +102,21 @@ h2 {
     transform: scale(0.98);
 }
 
-/* Part 3 Styles - Extremely Simplified */
+/* Part 3 Styles - Enhanced Animations */
 #dynamicList {
     list-style: decimal;
     padding-left: 20px;
 }
 
 #dynamicList li {
-    padding: 8px;
+    padding: 8px 12px;
     margin: 5px 0;
     background-color: #f8f8f8;
     border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 #dynamicList li:hover {
@@ -73,10 +124,54 @@ h2 {
 }
 
 #dynamicList li.clicked {
-    background-color: #fffacd;
+    animation: item-clicked 0.7s ease;
 }
 
-/* Part 4 Styles - Extremely Simplified */
+@keyframes item-clicked {
+    0% {
+        background-color: #f8f8f8;
+        transform: scale(1);
+    }
+    20% {
+        background-color: #9fd8ff;
+        transform: scale(1.02);
+        box-shadow: 0 2px 10px rgba(33, 150, 243, 0.4);
+    }
+    40% {
+        background-color: #c5e5ff;
+        transform: scale(1.01);
+    }
+    100% {
+        background-color: #f8f8f8;
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+/* Create ripple effect */
+#dynamicList li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #3498db 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .4s, opacity 0.8s;
+}
+
+#dynamicList li.ripple::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Part 4 Styles */
 #boxModel {
     width: 200px;
     height: 150px;
@@ -115,5 +210,6 @@ button:hover {
 
 #testAreaButton {
     display: block;
+    padding: 1rem 0.75rem;
     margin-top: 10px;
 }

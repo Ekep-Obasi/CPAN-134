@@ -1,7 +1,3 @@
-/**
- * CSS Box Model interactions.
- * Changes box properties based on user interactions.
- */
 document.addEventListener('DOMContentLoaded', function() {
     const boxModel = document.getElementById('boxModel');
     
