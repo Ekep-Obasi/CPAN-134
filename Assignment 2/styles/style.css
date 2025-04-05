@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+section {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+h2 {
+    color: #444;
+}
+
+/* Part 2 Styles */
+#colorButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#colorButton:hover {
+    opacity: 0.9;
+}
+
+#colorButton:active {
+    transform: scale(0.98);
+}
+
+/* Part 3 Styles - Extremely Simplified */
+#dynamicList {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+#dynamicList li {
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#dynamicList li:hover {
+    background-color: #e8e8e8;
+}
+
+#dynamicList li.clicked {
+    background-color: #fffacd;
+}
+
+/* Part 4 Styles - Extremely Simplified */
+#boxModel {
+    width: 200px;
+    height: 150px;
+    padding: 20px;
+    border: 1rem solid #333;
+    margin: 30px auto;
+    background-color: #f0f0f0;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#boxModel:hover {
+    border-color: #666;
+}
+
+#boxModel p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Button Styles */
+button {
+    padding: 8px 15px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+
+#testAreaButton {
+    display: block;
+    margin-top: 10px;
+}
