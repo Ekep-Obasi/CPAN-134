@@ -1,0 +1,212 @@
+/* About page specific styles */
+
+/* Hero section */
+.about-hero {
+    background-color: #f8f9fa;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.about-illustration {
+    max-height: 400px;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Section styling */
+.section-title-left {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title-left:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--success);
+}
+
+/* Values section */
+.value-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(32, 201, 151, 0.1);
+    color: var(--success);
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Stats and impacts */
+.stat-icon, .contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.impact-item {
+    padding: 1rem;
+    background-color: rgba(248, 249, 250, 0.5);
+    border-radius: 8px;
+}
+
+/* Team section */
+.team-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.team-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(108, 117, 125, 0.1);
+    color: var(--dark);
+    font-size: 0.875rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--success);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Partners section */
+.partner-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.05);
+}
+
+.partner-logo img {
+    max-height: 50px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partner-logo:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* FAQ section */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(32, 201, 151, 0.1);
+    color: var(--success);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(32, 201, 151, 0.5);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2320c997'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* Careers section */
+.jobs-table tr {
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.jobs-table tr:last-child {
+    border-bottom: none;
+}
+
+.jobs-table tr:hover {
+    background-color: rgba(248, 249, 250, 0.7);
+}
+
+.jobs-table td {
+    padding: 1.5rem;
+}
+
+/* Contact section */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--success);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    .about-hero {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    
+    .jobs-table .job-location {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .impact-stats .row {
+        row-gap: 1.5rem !important;
+    }
+    
+    .team-img {
+        height: 220px;
+    }
+    
+    .jobs-table td {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,106 @@
+/* Challenges specific styles */
+
+/* Header */
+.challenges-header {
+    background-color: var(--success);
+    background-image: linear-gradient(135deg, var(--success) 0%, #198754 100%);
+}
+
+.challenges-illustration {
+    max-height: 300px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Sidebar */
+.challenges-sidebar {
+    position: sticky;
+    top: 90px;
+}
+
+/* Challenge cards */
+.challenge-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.challenge-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.challenge-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+}
+
+.category-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* Category colors */
+.food-banner {
+    background-color: #0d6efd;
+}
+
+.transport-banner {
+    background-color: #fd7e14;
+}
+
+.energy-banner {
+    background-color: #ffc107;
+}
+
+.waste-banner {
+    background-color: #6f42c1;
+}
+
+.water-banner {
+    background-color: #0dcaf0;
+}
+
+/* Modal styles */
+.challenge-detail-img {
+    object-fit: cover;
+    height: 100%;
+    min-height: 300px;
+}
+
+.modal-body .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Pagination */
+.pagination .page-link {
+    color: var(--success);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--success);
+    border-color: var(--success);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .challenges-sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+}

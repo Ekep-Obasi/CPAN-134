@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Challenges | EcoTracker</title>
+    <meta name="description" content="Join environmental challenges and reduce your carbon footprint with EcoTracker.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages/challenges.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                <span class="ms-2 logo-text">EcoTracker</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculator.html">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 d-flex align-items-center">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                            <span>Alex Johnson</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../index.html">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="challenges-header py-5 bg-success text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold mb-3">Eco Challenges</h1>
+                    <p class="lead mb-4">Join our community challenges to reduce your environmental impact and build sustainable habits.</p>
+                    <div class="d-flex align-items-center">
+                        <div class="me-4">
+                            <i class="fas fa-users text-white-50 me-2"></i>
+                            <span>14,385 participants</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-trophy text-white-50 me-2"></i>
+                            <span>856 challenges completed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block text-center">
+                    <img src="../assets/images/challenges-illustration.svg" alt="Eco Challenges" class="img-fluid challenges-illustration">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Challenge Categories Section -->
+    <section class="categories-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="challenges-sidebar">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body">
+                                <h2 class="h5 mb-3">Filter Challenges</h2>
+                                
+                                <div class="mb-4">
+                                    <label for="challengeSearch" class="form-label">Search</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="challengeSearch" placeholder="Keywords...">
+                                        <button class="btn btn-outline-success" type="button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Categories</label>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="categoryAll" checked>
+                                        <label class="form-check-label" for="categoryAll">
+                                            All Categories
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="categoryFood">
+                                        <label class="form-check-label" for="categoryFood">
+                                            Food
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="categoryTransport">
+                                        <label class="form-check-label" for="categoryTransport">
+                                            Transport
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="categoryEnergy">
+                                        <label class="form-check-label" for="categoryEnergy">
+                                            Energy
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="categoryWaste">
+                                        <label class="form-check-label" for="categoryWaste">
+                                            Waste
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="categoryWater">
+                                        <label class="form-check-label" for="categoryWater">
+                                            Water
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Difficulty</label>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="difficultyAll" checked>
+                                        <label class="form-check-label" for="difficultyAll">
+                                            All Levels
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="difficultyBeginner">
+                                        <label class="form-check-label" for="difficultyBeginner">
+                                            Beginner
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="difficultyIntermediate">
+                                        <label class="form-check-label" for="difficultyIntermediate">
+                                            Intermediate
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="difficultyAdvanced">
+                                        <label class="form-check-label" for="difficultyAdvanced">
+                                            Advanced
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Duration</label>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="durationAll" checked>
+                                        <label class="form-check-label" for="durationAll">
+                                            Any Duration
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="durationShort">
+                                        <label class="form-check-label" for="durationShort">
+                                            Short (1-7 days)
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="durationMedium">
+                                        <label class="form-check-label" for="durationMedium">
+                                            Medium (1-4 weeks)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="durationLong">
+                                        <label class="form-check-label" for="durationLong">
+                                            Long (1+ months)
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button class="btn btn-success" type="button">Apply Filters</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2 class="h5 mb-3">Create Custom Challenge</h2>
+                                <p class="small text-muted mb-3">Design your own eco-challenge and share it with the community.</p>
+                                <div class="d-grid">
+                                    <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#createChallengeModal">
+                                        <i class="fas fa-plus me-2"></i> Create Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h3 mb-0">Available Challenges</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort by: Popular
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortDropdown">
+                                <li><a class="dropdown-item active" href="#">Popular</a></li>
+                                <li><a class="dropdown-item" href="#">Newest</a></li>
+                                <li><a class="dropdown-item" href="#">Easiest</a></li>
+                                <li><a class="dropdown-item" href="#">Most Impactful</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <!-- Challenge Card 1 -->
+                        <div class="col-md-6 col-lg-4" id="meatless-monday">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner food-banner">
+                                    <span class="category-badge">Food</span>
+                                </div>
+                                <img src="../assets/images/challenge-meatless.jpg" class="card-img-top" alt="Meatless Monday Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">Meatless Monday</h3>
+                                    <p class="card-text">Cut your carbon footprint by going meat-free just one day a week. Save approximately 5kg CO₂ each time.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-success small">Beginner</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">4 weeks</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">2,834 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">14.2 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 2 -->
+                        <div class="col-md-6 col-lg-4" id="green-commute">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner transport-banner">
+                                    <span class="category-badge">Transport</span>
+                                </div>
+                                <img src="../assets/images/challenge-commute.jpg" class="card-img-top" alt="Green Commute Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">Green Commute</h3>
+                                    <p class="card-text">Walk, cycle, or use public transport for your daily commute. Reduce emissions and improve your fitness.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-warning small">Intermediate</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">2 weeks</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">1,946 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">9.7 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 3 -->
+                        <div class="col-md-6 col-lg-4" id="plastic-free">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner waste-banner">
+                                    <span class="category-badge">Waste</span>
+                                </div>
+                                <img src="../assets/images/challenge-plastic.jpg" class="card-img-top" alt="Plastic Free Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">Plastic Free Living</h3>
+                                    <p class="card-text">Eliminate single-use plastics from your daily routine. Track your progress and see immediate results.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-danger small">Advanced</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">1 week</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">1,233 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">3.7 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner energy-banner">
+                                    <span class="category-badge">Energy</span>
+                                </div>
+                                <img src="../assets/images/challenge-energy.jpg" class="card-img-top" alt="No Standby Power Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">No Standby Power</h3>
+                                    <p class="card-text">Unplug electronics when not in use and reduce your home's phantom energy consumption.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-success small">Beginner</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">30 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">987 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">2.5 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner water-banner">
+                                    <span class="category-badge">Water</span>
+                                </div>
+                                <img src="../assets/images/challenge-shower.jpg" class="card-img-top" alt="5-Minute Shower Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">5-Minute Shower</h3>
+                                    <p class="card-text">Limit your showers to just 5 minutes to conserve water and the energy needed to heat it.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-warning small">Intermediate</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">14 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">1,572 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">7.8 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner food-banner">
+                                    <span class="category-badge">Food</span>
+                                </div>
+                                <img src="../assets/images/challenge-local.jpg" class="card-img-top" alt="Eat Local Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">Eat Local</h3>
+                                    <p class="card-text">Source your food from within 100 miles of your home to reduce transport emissions and support local farmers.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-warning small">Intermediate</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">2 weeks</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">843 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">4.2 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 7 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner waste-banner">
+                                    <span class="category-badge">Waste</span>
+                                </div>
+                                <img src="../assets/images/challenge-compost.jpg" class="card-img-top" alt="Home Composting Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">Home Composting</h3>
+                                    <p class="card-text">Start composting food scraps and yard waste to reduce methane emissions from landfills.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-warning small">Intermediate</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">30 days</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">736 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">5.9 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 8 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner transport-banner">
+                                    <span class="category-badge">Transport</span>
+                                </div>
+                                <img src="../assets/images/challenge-carfree.jpg" class="card-img-top" alt="Car-Free Weekend Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">Car-Free Weekend</h3>
+                                    <p class="card-text">Go an entire weekend without using your car. Walk, bike, or use public transport instead.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-warning small">Intermediate</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">4 weekends</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">1,092 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">6.5 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Challenge Card 9 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card challenge-card h-100">
+                                <div class="challenge-banner energy-banner">
+                                    <span class="category-badge">Energy</span>
+                                </div>
+                                <img src="../assets/images/challenge-led.jpg" class="card-img-top" alt="LED Lighting Challenge">
+                                <div class="card-body">
+                                    <h3 class="card-title h5">LED Lighting</h3>
+                                    <p class="card-text">Replace all incandescent and CFL bulbs in your home with energy-efficient LED alternatives.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div class="difficulty">
+                                            <span class="text-muted small">Difficulty:</span>
+                                            <span class="text-success small">Beginner</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="text-muted small">Duration:</span>
+                                            <span class="small">1 week</span>
+                                        </div>
+                                    </div>
+                                    <div class="participation-info d-flex justify-content-between align-items-center mb-3">
+                                        <div class="participants">
+                                            <i class="fas fa-user-friends text-muted small"></i>
+                                            <span class="small">1,347 participants</span>
+                                        </div>
+                                        <div class="impact">
+                                            <i class="fas fa-leaf text-success small"></i>
+                                            <span class="small">8.1 tons saved</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 pb-3">
+                                    <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#challengeDetailModal">
+                                        View Challenge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Detail Modal -->
+    <div class="modal fade" id="challengeDetailModal" tabindex="-1" aria-labelledby="challengeDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="challengeDetailModalLabel">Meatless Monday Challenge</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="../assets/images/challenge-meatless-detail.jpg" alt="Meatless Monday Challenge" class="img-fluid challenge-detail-img">
+                        </div>
+                        <div class="col-md-7 p-4">
+                            <div class="challenge-meta d-flex flex-wrap mb-4">
+                                <div class="me-4 mb-2">
+                                    <span class="badge bg-success">Food</span>
+                                </div>
+                                <div class="me-4 mb-2">
+                                    <i class="fas fa-signal me-1"></i>
+                                    <span>Beginner</span>
+                                </div>
+                                <div class="me-4 mb-2">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    <span>4 weeks</span>
+                                </div>
+                                <div class="me-4 mb-2">
+                                    <i class="fas fa-user-friends me-1"></i>
+                                    <span>2,834 participants</span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-leaf text-success me-1"></i>
+                                    <span>14.2 tons CO₂ saved</span>
+                                </div>
+                            </div>
+                            
+                            <div class="challenge-description mb-4">
+                                <h3 class="h5 mb-3">Description</h3>
+                                <p>The Meatless Monday challenge encourages you to avoid meat products one day a week. Livestock production is responsible for about 14.5% of global greenhouse gas emissions, so reducing meat consumption is one of the most effective ways individuals can lower their carbon footprint.</p>
+                               <p>By participating in this 4-week challenge, you'll not only reduce your environmental impact but also explore delicious plant-based alternatives and potentially improve your health.</p>
+                           </div>
+                           
+                           <div class="challenge-details mb-4">
+                               <h3 class="h5 mb-3">How It Works</h3>
+                               <ol class="mb-0">
+                                   <li class="mb-2">Every Monday, avoid all meat products (beef, pork, chicken, fish, etc.)</li>
+                                   <li class="mb-2">Log your meatless meals in the tracker</li>
+                                   <li class="mb-2">Share your favorite plant-based recipes with the community</li>
+                                   <li class="mb-2">Track your carbon savings over the 4-week period</li>
+                                   <li>Complete all 4 Mondays to finish the challenge</li>
+                               </ol>
+                           </div>
+                           
+                           <div class="challenge-impact mb-4">
+                               <h3 class="h5 mb-3">Environmental Impact</h3>
+                               <div class="d-flex align-items-center mb-2">
+                                   <div class="progress flex-grow-1 me-3" style="height: 8px;">
+                                       <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                   </div>
+                                   <span class="text-success fw-bold">5kg CO₂e</span>
+                               </div>
+                               <p class="small text-muted">Estimated CO₂ savings per Meatless Monday</p>
+                           </div>
+                           
+                           <div class="challenge-resources mb-4">
+                               <h3 class="h5 mb-3">Resources</h3>
+                               <div class="list-group">
+                                   <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                                       <i class="fas fa-file-alt me-3 text-success"></i>
+                                       <span>Beginner's Guide to Plant-Based Eating</span>
+                                   </a>
+                                   <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                                       <i class="fas fa-utensils me-3 text-success"></i>
+                                       <span>15 Easy Vegetarian Recipes for Beginners</span>
+                                   </a>
+                                   <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                                       <i class="fas fa-shopping-basket me-3 text-success"></i>
+                                       <span>Essential Plant-Based Pantry Staples</span>
+                                   </a>
+                               </div>
+                           </div>
+                           
+                           <div class="challenge-testimonial p-3 bg-light rounded mb-4">
+                               <div class="d-flex">
+                                   <img src="../assets/images/user-2.jpg" alt="User Testimonial" class="rounded-circle me-3" width="60" height="60">
+                                   <div>
+                                       <p class="mb-2">"I never thought I could enjoy meals without meat, but this challenge opened my eyes to so many delicious alternatives. Now we do Meatless Monday every week, even after completing the challenge!"</p>
+                                       <p class="mb-0 small fw-bold">— Marcus Chen, Challenge Completer</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                   <button type="button" class="btn btn-success">Join Challenge</button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <!-- Create Challenge Modal -->
+   <div class="modal fade" id="createChallengeModal" tabindex="-1" aria-labelledby="createChallengeModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="createChallengeModalLabel">Create Custom Challenge</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                   <form id="createChallengeForm" data-validate="true">
+                       <div class="mb-3">
+                           <label for="challengeTitle" class="form-label">Challenge Title</label>
+                           <input type="text" class="form-control" id="challengeTitle" placeholder="Give your challenge a catchy name" required>
+                       </div>
+                       
+                       <div class="mb-3">
+                           <label for="challengeCategory" class="form-label">Category</label>
+                           <select class="form-select" id="challengeCategory" required>
+                               <option value="" selected disabled>Select a category</option>
+                               <option value="food">Food</option>
+                               <option value="transport">Transport</option>
+                               <option value="energy">Energy</option>
+                               <option value="waste">Waste</option>
+                               <option value="water">Water</option>
+                               <option value="other">Other</option>
+                           </select>
+                       </div>
+                       
+                       <div class="row">
+                           <div class="col-md-6 mb-3">
+                               <label for="challengeDifficulty" class="form-label">Difficulty</label>
+                               <select class="form-select" id="challengeDifficulty" required>
+                                   <option value="" selected disabled>Select difficulty level</option>
+                                   <option value="beginner">Beginner</option>
+                                   <option value="intermediate">Intermediate</option>
+                                   <option value="advanced">Advanced</option>
+                               </select>
+                           </div>
+                           
+                           <div class="col-md-6 mb-3">
+                               <label for="challengeDuration" class="form-label">Duration</label>
+                               <div class="input-group">
+                                   <input type="number" class="form-control" id="challengeDuration" min="1" placeholder="e.g. 7" required>
+                                   <select class="form-select" id="durationUnit" required>
+                                       <option value="days">Days</option>
+                                       <option value="weeks">Weeks</option>
+                                       <option value="months">Months</option>
+                                   </select>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <div class="mb-3">
+                           <label for="challengeDescription" class="form-label">Description</label>
+                           <textarea class="form-control" id="challengeDescription" rows="3" placeholder="Explain what your challenge involves and why it matters" required></textarea>
+                       </div>
+                       
+                       <div class="mb-3">
+                           <label for="challengeSteps" class="form-label">Challenge Steps</label>
+                           <textarea class="form-control" id="challengeSteps" rows="4" placeholder="List the steps participants need to follow (one per line)" required></textarea>
+                           <div class="form-text">Enter each step on a new line</div>
+                       </div>
+                       
+                       <div class="mb-3">
+                           <label class="form-label">Resources (Optional)</label>
+                           <div class="input-group mb-2">
+                               <span class="input-group-text"><i class="fas fa-link"></i></span>
+                               <input type="url" class="form-control" id="resource1" placeholder="URL to helpful resource">
+                               <input type="text" class="form-control" id="resourceName1" placeholder="Resource name">
+                           </div>
+                           <div class="input-group">
+                               <span class="input-group-text"><i class="fas fa-link"></i></span>
+                               <input type="url" class="form-control" id="resource2" placeholder="URL to helpful resource">
+                               <input type="text" class="form-control" id="resourceName2" placeholder="Resource name">
+                           </div>
+                       </div>
+                       
+                       <div class="mb-3">
+                           <label for="challengeImage" class="form-label">Challenge Image (Optional)</label>
+                           <input class="form-control" type="file" id="challengeImage">
+                           <div class="form-text">Recommended image size: 800x400px, max 2MB</div>
+                       </div>
+                       
+                       <div class="form-check mb-3">
+                           <input class="form-check-input" type="checkbox" id="makePublic" checked>
+                           <label class="form-check-label" for="makePublic">
+                               Make this challenge available to the community
+                           </label>
+                       </div>
+                   </form>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                   <button type="submit" form="createChallengeForm" class="btn btn-success">Create Challenge</button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <!-- Footer -->
+   <footer class="footer bg-dark text-white pt-5 pb-4">
+       <div class="container">
+           <div class="row">
+               <div class="col-lg-4 mb-4 mb-lg-0">
+                   <div class="footer-brand d-flex align-items-center mb-3">
+                       <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                       <span class="ms-2 h5 mb-0">EcoTracker</span>
+                   </div>
+                   <p class="mb-4">Making sustainable living accessible, measurable, and community-driven.</p>
+                   <div class="social-icons">
+                       <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                       <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                       <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                       <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                   </div>
+               </div>
+               
+               <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                   <h5 class="text-uppercase mb-4">Pages</h5>
+                   <ul class="list-unstyled">
+                       <li class="mb-2"><a href="../index.html" class="text-white-50">Home</a></li>
+                       <li class="mb-2"><a href="dashboard.html" class="text-white-50">Dashboard</a></li>
+                       <li class="mb-2"><a href="calculator.html" class="text-white-50">Calculator</a></li>
+                       <li class="mb-2"><a href="challenges.html" class="text-white-50">Challenges</a></li>
+                       <li class="mb-2"><a href="community.html" class="text-white-50">Community</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                   <h5 class="text-uppercase mb-4">Resources</h5>
+                   <ul class="list-unstyled">
+                       <li class="mb-2"><a href="resources.html" class="text-white-50">Articles</a></li>
+                       <li class="mb-2"><a href="resources.html#videos" class="text-white-50">Videos</a></li>
+                       <li class="mb-2"><a href="resources.html#guides" class="text-white-50">Guides</a></li>
+                       <li class="mb-2"><a href="resources.html#research" class="text-white-50">Research</a></li>
+                       <li class="mb-2"><a href="about.html#faq" class="text-white-50">FAQ</a></li>
+                   </ul>
+               </div>
+               
+               <div class="col-lg-4">
+                   <h5 class="text-uppercase mb-4">Contact Us</h5>
+                   <div class="mb-3">
+                       <i class="fas fa-envelope me-2 text-success"></i>
+                       <a href="mailto:info@ecotracker.org" class="text-white-50">info@ecotracker.org</a>
+                   </div>
+                   <div class="mb-3">
+                       <i class="fas fa-phone me-2 text-success"></i>
+                       <span class="text-white-50">(555) 123-4567</span>
+                   </div>
+                   <div class="mb-3">
+                       <i class="fas fa-map-marker-alt me-2 text-success"></i>
+                       <span class="text-white-50">123 Green Street, Eco City, EC 12345</span>
+                   </div>
+               </div>
+           </div>
+           
+           <hr class="mt-4 mb-4 border-secondary">
+           
+           <div class="row align-items-center">
+               <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                   <p class="small text-white-50 mb-0">&copy; 2025 EcoTracker. All rights reserved.</p>
+               </div>
+               <div class="col-md-6 text-center text-md-end">
+                   <ul class="list-inline mb-0">
+                       <li class="list-inline-item"><a href="#" class="text-white-50 small">Privacy Policy</a></li>
+                       <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                       <li class="list-inline-item"><a href="#" class="text-white-50 small">Terms of Use</a></li>
+                       <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                       <li class="list-inline-item"><a href="#" class="text-white-50 small">Cookie Policy</a></li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </footer>
+
+   <!-- Bootstrap Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Custom Scripts -->
+   <script src="../js/main.js"></script>
+   <script src="../js/validation.js"></script>
+   <script src="../js/pages/challenges.js"></script>
+</body>
+</html>

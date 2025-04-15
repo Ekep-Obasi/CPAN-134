@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | EcoTracker</title>
+    <meta name="description" content="Manage your EcoTracker profile, view achievements, and track your environmental impact progress.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages/profile.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                <span class="ms-2 logo-text">EcoTracker</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculator.html">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 d-flex align-items-center">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                            <span>Alex Johnson</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                            <li><a class="dropdown-item active" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../index.html">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <header class="profile-header py-5 bg-success text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center">
+                        <div class="position-relative">
+                            <img src="../assets/images/user-avatar.jpg" alt="Alex Johnson" class="rounded-circle profile-avatar">
+                            <div class="edit-avatar-button" data-bs-toggle="modal" data-bs-target="#changePhotoModal">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                        <div class="ms-4">
+                            <h1 class="display-6 fw-bold mb-1">Alex Johnson</h1>
+                            <p class="lead mb-2">Eco Explorer • Level 8</p>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-light text-success me-2">Top Contributor</span>
+                                <span class="badge bg-light text-dark me-2">Member since 2023</span>
+                                <span class="badge bg-light text-primary">San Francisco, CA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
+                    <div class="d-flex flex-column flex-sm-row gap-2 justify-content-lg-end">
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                            <i class="fas fa-edit me-2"></i> Edit Profile
+                        </button>
+                        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#shareProfileModal">
+                            <i class="fas fa-share-alt me-2"></i> Share Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Content -->
+    <section class="profile-content py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="profile-sidebar">
+                        <!-- Profile Navigation -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-0">
+                                <nav class="profile-nav">
+                                    <a href="#overview" class="nav-link active" data-bs-toggle="pill">
+                                        <i class="fas fa-user me-2"></i> Overview
+                                    </a>
+                                    <a href="#achievements" class="nav-link" data-bs-toggle="pill">
+                                        <i class="fas fa-medal me-2"></i> Achievements
+                                    </a>
+                                    <a href="#challenges" class="nav-link" data-bs-toggle="pill">
+                                        <i class="fas fa-tasks me-2"></i> My Challenges
+                                    </a>
+                                    <a href="#activity" class="nav-link" data-bs-toggle="pill">
+                                        <i class="fas fa-history me-2"></i> Activity Log
+                                    </a>
+                                    <a href="#connections" class="nav-link" data-bs-toggle="pill">
+                                        <i class="fas fa-users me-2"></i> Connections
+                                    </a>
+                                    <a href="#settings" class="nav-link" data-bs-toggle="pill">
+                                        <i class="fas fa-cog me-2"></i> Settings
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                        
+                        <!-- User Stats -->
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white border-0">
+                                <h2 class="h6 mb-0">My Stats</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress-stat mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted small">Carbon Saved</span>
+                                        <span class="text-success small">3.7 tons</span>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 74%;" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-stat mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted small">Challenges Completed</span>
+                                        <span class="text-primary small">18 / 25</span>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-stat mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted small">Experience Points</span>
+                                        <span class="text-warning small">6,843 / 10,000</span>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-stat mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="text-muted small">Community Rank</span>
+                                        <span class="text-info small">Top 5%</span>
+                                    </div>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Badges -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                <h2 class="h6 mb-0">Recent Badges</h2>
+                                <a href="#achievements" class="small" data-bs-toggle="pill">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <div class="badge-item text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Water Saver: Reduced water usage by 20%">
+                                            <div class="badge-icon bg-info text-white">
+                                                <i class="fas fa-tint"></i>
+                                            </div>
+                                            <span class="small d-block mt-1">Water</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="badge-item text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Green Commuter: 30 car-free commute days">
+                                            <div class="badge-icon bg-success text-white">
+                                                <i class="fas fa-bicycle"></i>
+                                            </div>
+                                            <span class="small d-block mt-1">Travel</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="badge-item text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Energy Efficient: Reduced home energy by 15%">
+                                            <div class="badge-icon bg-warning text-white">
+                                                <i class="fas fa-bolt"></i>
+                                            </div>
+                                            <span class="small d-block mt-1">Energy</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-lg-9">
+                    <div class="tab-content">
+                        <!-- Overview Tab -->
+                        <div class="tab-pane fade show active" id="overview">
+                            <!-- Bio Section -->
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0">
+                                    <h2 class="h5 mb-0">About Me</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p>Urban planner passionate about creating sustainable cities. I've been on a journey to reduce my environmental footprint since 2020, focusing on low-impact transportation, mindful consumption, and community building.</p>
+                                    <p class="mb-0">In my free time, I volunteer with local conservation groups and experiment with container gardening on my apartment balcony.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Impact Summary -->
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0">
+                                    <h2 class="h5 mb-0">Environmental Impact</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <div class="impact-chart-container" style="height: 250px;">
+                                                <canvas id="impactChart"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3 class="h6 mb-3">Key Areas of Impact</h3>
+                                            <div class="impact-area mb-3">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span class="text-muted">Transportation</span>
+                                                    <span class="text-primary fw-bold">1.4 tons CO₂e saved</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="impact-area mb-3">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span class="text-muted">Energy Use</span>
+                                                    <span class="text-success fw-bold">0.9 tons CO₂e saved</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="impact-area mb-3">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span class="text-muted">Food Choices</span>
+                                                    <span class="text-warning fw-bold">0.8 tons CO₂e saved</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="impact-area">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span class="text-muted">Waste Reduction</span>
+                                                    <span class="text-danger fw-bold">0.6 tons CO₂e saved</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Activity -->
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">Recent Activity</h2>
+                                    <a href="#activity" class="small" data-bs-toggle="pill">View All</a>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="activity-timeline">
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-success text-white">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h3 class="h6 mb-0">Completed Challenge</h3>
+                                                    <span class="text-muted small">Today</span>
+                                                </div>
+                                                <p class="mb-0">You completed day 3 of the Meatless Monday challenge</p>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-primary text-white">
+                                                <i class="fas fa-calculator"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h3 class="h6 mb-0">Updated Carbon Footprint</h3>
+                                                    <span class="text-muted small">Yesterday</span>
+                                                </div>
+                                                <p class="mb-0">Your carbon footprint reduced by 0.3 tons CO₂e this month</p>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon bg-warning text-white">
+                                                <i class="fas fa-medal"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h3 class="h6 mb-0">Earned Achievement</h3>
+                                                    <span class="text-muted small">3 days ago</span>
+                                                </div>
+                                                <p class="mb-0">You earned the "Energy Saver" achievement</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Friends -->
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">Friends</h2>
+                                    <a href="#connections" class="small" data-bs-toggle="pill">View All</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-3">
+                                        <div class="col-md-4 col-6">
+                                            <div class="friend-item d-flex align-items-center">
+                                                <img src="../assets/images/user-1.jpg" alt="Sarah Johnson" class="rounded-circle friend-avatar me-3">
+                                                <div>
+                                                    <h3 class="h6 mb-0">Sarah Johnson</h3>
+                                                    <span class="text-muted small">Level 7</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="friend-item d-flex align-items-center">
+                                                <img src="../assets/images/user-2.jpg" alt="Marcus Chen" class="rounded-circle friend-avatar me-3">
+                                                <div>
+                                                    <h3 class="h6 mb-0">Marcus Chen</h3>
+                                                    <span class="text-muted small">Level 10</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6">
+                                            <div class="friend-item d-flex align-items-center">
+                                                <img src="../assets/images/user-3.jpg" alt="Elena Rodriguez" class="rounded-circle friend-avatar me-3">
+                                                <div>
+                                                    <h3 class="h6 mb-0">Elena Rodriguez</h3>
+                                                    <span class="text-muted small">Level 12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Achievements Tab -->
+                        <div class="tab-pane fade" id="achievements">
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">My Achievements</h2>
+                                    <div class="achievement-filter">
+                                        <select class="form-select form-select-sm">
+                                            <option selected>All Categories</option>
+                                            <option>Transportation</option>
+                                            <option>Energy</option>
+                                            <option>Food</option>
+                                            <option>Waste</option>
+                                            <option>Water</option>
+                                            <option>Community</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <!-- Achievement 1 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="achievement-card">
+                                                <div class="achievement-icon bg-success">
+                                                    <i class="fas fa-bicycle"></i>
+                                                </div>
+                                                <h3 class="h6 mb-2">Car-Free Commuter</h3>
+                                                <p class="small text-muted mb-2">Completed 30 days of car-free commuting</p>
+                                                <div class="achievement-meta d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-success">Transportation</span>
+                                                    <span class="text-muted small">Feb 15, 2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Achievement 2 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="achievement-card">
+                                                <div class="achievement-icon bg-warning">
+                                                    <i class="fas fa-bolt"></i>
+                                                </div>
+                                                <h3 class="h6 mb-2">Energy Saver</h3>
+                                                <p class="small text-muted mb-2">Reduced home energy consumption by 15%</p>
+                                                <div class="achievement-meta d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-warning text-dark">Energy</span>
+                                                    <span class="text-muted small">Mar 12, 2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Achievement 3 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="achievement-card">
+                                                <div class="achievement-icon bg-info">
+                                                    <i class="fas fa-tint"></i>
+                                                </div>
+                                                <h3 class="h6 mb-2">Water Conserver</h3>
+                                                <p class="small text-muted mb-2">Reduced water consumption by 20%</p>
+                                                <div class="achievement-meta d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-info">Water</span>
+                                                    <span class="text-muted small">Apr 3, 2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Achievement 4 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="achievement-card">
+                                                <div class="achievement-icon bg-primary">
+                                                    <i class="fas fa-utensils"></i>
+                                                </div>
+                                                <h3 class="h6 mb-2">Plant-Based Pioneer</h3>
+                                                <p class="small text-muted mb-2">Completed 4 weeks of plant-based eating</p>
+                                                <div class="achievement-meta d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-primary">Food</span>
+                                                    <span class="text-muted small">Jan 30, 2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Achievement 5 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="achievement-card">
+                                                <div class="achievement-icon bg-danger">
+                                                    <i class="fas fa-recycle"></i>
+                                                </div>
+                                                <h3 class="h6 mb-2">Zero Waste Warrior</h3>
+                                                <p class="small text-muted mb-2">Reduced household waste by 50%</p>
+                                                <div class="achievement-meta d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-danger">Waste</span>
+                                                    <span class="text-muted small">Feb 8, 2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Achievement 6 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="achievement-card">
+                                                <div class="achievement-icon bg-secondary">
+                                                    <i class="fas fa-users"></i>
+                                                </div>
+                                                <h3 class="h6 mb-2">Community Leader</h3>
+                                                <p class="small text-muted mb-2">Organized a neighborhood clean-up event</p>
+                                                <div class="achievement-meta d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-secondary">Community</span>
+                                                    <span class="text-muted small">Mar 22, 2025</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="locked-achievements mt-5">
+                                        <h3 class="h6 mb-3">Upcoming Achievements</h3>
+                                        <div class="row g-4">
+                                            <!-- Locked Achievement 1 -->
+                                            <div class="col-md-6 col-lg-4">
+                                                <div class="achievement-card locked">
+                                                    <div class="achievement-icon bg-light text-muted">
+                                                        <i class="fas fa-solar-panel"></i>
+                                                    </div>
+                                                    <h3 class="h6 mb-2">Solar Supporter</h3>
+                                                    <p class="small text-muted mb-2">Switch to renewable energy sources</p>
+                                                    <div class="achievement-progress">
+                                                        <div class="progress" style="height: 6px;">
+                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <span class="small text-muted mt-1 d-block">35% complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Locked Achievement 2 -->
+                                            <div class="col-md-6 col-lg-4">
+                                                <div class="achievement-card locked">
+                                                    <div class="achievement-icon bg-light text-muted">
+                                                        <i class="fas fa-seedling"></i>
+                                                    </div>
+                                                    <h3 class="h6 mb-2">Urban Gardener</h3>
+                                                    <p class="small text-muted mb-2">Grow 10 different vegetables at home</p>
+                                                    <div class="achievement-progress">
+                                                        <div class="progress" style="height: 6px;">
+                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <span class="small text-muted mt-1 d-block">60% complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Locked Achievement 3 -->
+                                            <div class="col-md-6 col-lg-4">
+                                                <div class="achievement-card locked">
+                                                    <div class="achievement-icon bg-light text-muted">
+                                                        <i class="fas fa-plane-slash"></i>
+                                                    </div>
+                                                    <h3 class="h6 mb-2">Low-Carbon Traveler</h3>
+                                                    <p class="small text-muted mb-2">Avoid air travel for 1 year</p>
+                                                    <div class="achievement-progress">
+                                                        <div class="progress" style="height: 6px;">
+                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <span class="small text-muted mt-1 d-block">80% complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- My Challenges Tab -->
+                        <div class="tab-pane fade" id="challenges">
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">Active Challenges</h2>
+                                    <a href="challenges.html" class="btn btn-sm btn-success">
+                                        <i class="fas fa-plus me-1"></i> Join New Challenge
+                                    </a>
+                                </div>
+                                <div class="card-body p-0">
+                                    <ul class="list-group list-group-flush">
+                                        <!-- Challenge 1 -->
+                                        <li class="list-group-item p-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="challenge-icon bg-success text-white">
+                                                        <i class="fas fa-carrot"></i>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <h3 class="h6 mb-1">Meatless Monday</h3>
+                                                        <p class="small text-muted mb-0">3 of 4 weeks completed</p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <div class="progress" style="width: 100px; height: 6px;">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small text-muted">75%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <!-- Challenge 2 -->
+                                        <li class="list-group-item p-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="challenge-icon bg-info text-white">
+                                                        <i class="fas fa-tint"></i>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <h3 class="h6 mb-1">5-Minute Showers</h3>
+                                                        <p class="small text-muted mb-0">10 of 14 days completed</p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <div class="progress" style="width: 100px; height: 6px;">
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 71%" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small text-muted">71%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <!-- Challenge 3 -->
+                                        <li class="list-group-item p-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="challenge-icon bg-warning text-white">
+                                                        <i class="fas fa-bolt"></i>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <h3 class="h6 mb-1">Standby Power Reduction</h3>
+                                                        <p class="small text-muted mb-0">5 of 30 days completed</p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <div class="progress" style="width: 100px; height: 6px;">
+                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 17%" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small text-muted">17%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <!-- Challenge 4 -->
+                                        <li class="list-group-item p-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="challenge-icon bg-danger text-white">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <h3 class="h6 mb-1">Zero Plastic Week</h3>
+                                                        <p class="small text-muted mb-0">2 of 7 days completed</p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <div class="progress" style="width: 100px; height: 6px;">
+                                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 29%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small text-muted">29%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        
+                                        <!-- Challenge 5 -->
+                                        <li class="list-group-item p-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="challenge-icon bg-primary text-white">
+                                                        <i class="fas fa-bicycle"></i>
+                                                    </div>
+                                                    <div class="ms-3">
+                                                        <h3 class="h6 mb-1">Green Commute</h3>
+                                                        <p class="small text-muted mb-0">1 of 10 trips completed</p>
+                                                    </div>
+                                                </div>
+                                                <div class="text-end">
+                                                    <div class="progress" style="width: 100px; height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small text-muted">10%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Completed Challenges -->
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-header bg-white border-0">
+                                    <h2 class="h5 mb-0">Completed Challenges</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Challenge</th>
+                                                    <th>Category</th>
+                                                    <th>Completed</th>
+                                                    <th>Impact</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Paperless Billing</td>
+                                                    <td><span class="badge bg-success">Waste</span></td>
+                                                    <td>Jan 12, 2025</td>
+                                                    <td>0.05 tons CO₂e</td>
+                                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>LED Lighting Upgrade</td>
+                                                    <td><span class="badge bg-warning text-dark">Energy</span></td>
+                                                    <td>Feb 3, 2025</td>
+                                                    <td>0.21 tons CO₂e</td>
+                                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Local Food Week</td>
+                                                    <td><span class="badge bg-primary">Food</span></td>
+                                                    <td>Feb 20, 2025</td>
+                                                    <td>0.08 tons CO₂e</td>
+                                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Public Transit Month</td>
+                                                    <td><span class="badge bg-info">Transport</span></td>
+                                                    <td>Mar 15, 2025</td>
+                                                    <td>0.35 tons CO₂e</td>
+                                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity Log Tab -->
+                        <div class="tab-pane fade" id="activity">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">Activity History</h2>
+                                    <div class="activity-filter d-flex gap-2">
+                                        <select class="form-select form-select-sm">
+                                            <option selected>All Activities</option>
+                                            <option>Challenges</option>
+                                            <option>Achievements</option>
+                                            <option>Calculations</option>
+                                            <option>Community</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-outline-secondary">
+                                            <i class="fas fa-calendar-alt me-1"></i> Date Range
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="activity-timeline extended">
+                                        <!-- April 2025 -->
+                                        <div class="activity-month">
+                                            <div class="month-marker">
+                                                <span class="month-label">April 2025</span>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-success text-white">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Completed Challenge</h3>
+                                                        <span class="text-muted small">Apr 15, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You completed day 3 of the Meatless Monday challenge</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-primary text-white">
+                                                    <i class="fas fa-calculator"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Updated Carbon Footprint</h3>
+                                                        <span class="text-muted small">Apr 14, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">Your carbon footprint reduced by 0.3 tons CO₂e this month</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-warning text-white">
+                                                    <i class="fas fa-medal"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Earned Achievement</h3>
+                                                        <span class="text-muted small">Apr 12, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You earned the "Energy Saver" achievement</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-info text-white">
+                                                    <i class="fas fa-tint"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Started New Challenge</h3>
+                                                        <span class="text-muted small">Apr 10, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You joined the "5-Minute Showers" challenge</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-info text-white">
+                                                    <i class="fas fa-medal"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Earned Achievement</h3>
+                                                        <span class="text-muted small">Apr 3, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You earned the "Water Conserver" achievement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- March 2025 -->
+                                        <div class="activity-month">
+                                            <div class="month-marker">
+                                                <span class="month-label">March 2025</span>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-success text-white">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Completed Challenge</h3>
+                                                        <span class="text-muted small">Mar 28, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You completed the "Public Transit Month" challenge</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-secondary text-white">
+                                                    <i class="fas fa-users"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Joined Community Event</h3>
+                                                        <span class="text-muted small">Mar 22, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You participated in a neighborhood clean-up event</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="activity-item">
+                                                <div class="activity-icon bg-warning text-white">
+                                                    <i class="fas fa-bolt"></i>
+                                                </div>
+                                                <div class="activity-content">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h3 class="h6 mb-0">Started New Challenge</h3>
+                                                        <span class="text-muted small">Mar 15, 2025</span>
+                                                    </div>
+                                                    <p class="mb-0">You joined the "Standby Power Reduction" challenge</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Load More -->
+                                        <div class="text-center py-3">
+                                            <button class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-history me-1"></i> Load More Activity
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Connections Tab -->
+                        <div class="tab-pane fade" id="connections">
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">Friends & Connections</h2>
+                                    <div class="connection-actions d-flex gap-2">
+                                        <input type="text" class="form-control form-control-sm" placeholder="Search friends...">
+                                        <button class="btn btn-sm btn-success">
+                                            <i class="fas fa-user-plus me-1"></i> Find Friends
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <!-- Friend 1 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="friend-card d-flex align-items-center">
+                                                <img src="../assets/images/user-1.jpg" alt="Sarah Johnson" class="rounded-circle friend-avatar me-3">
+                                                <div class="flex-grow-1">
+                                                    <h3 class="h6 mb-1">Sarah Johnson</h3>
+                                                    <p class="small text-muted mb-2">Level 7 • Eco Enthusiast</p>
+                                                    <div class="friend-actions">
+                                                        <button class="btn btn-sm btn-outline-success me-1">
+                                                            <i class="fas fa-envelope me-1"></i> Message
+                                                        </button>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-user me-1"></i> Profile
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Friend 2 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="friend-card d-flex align-items-center">
+                                                <img src="../assets/images/user-2.jpg" alt="Marcus Chen" class="rounded-circle friend-avatar me-3">
+                                                <div class="flex-grow-1">
+                                                    <h3 class="h6 mb-1">Marcus Chen</h3>
+                                                    <p class="small text-muted mb-2">Level 10 • Eco Pioneer</p>
+                                                    <div class="friend-actions">
+                                                        <button class="btn btn-sm btn-outline-success me-1">
+                                                            <i class="fas fa-envelope me-1"></i> Message
+                                                        </button>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-user me-1"></i> Profile
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Friend 3 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="friend-card d-flex align-items-center">
+                                                <img src="../assets/images/user-3.jpg" alt="Elena Rodriguez" class="rounded-circle friend-avatar me-3">
+                                                <div class="flex-grow-1">
+                                                    <h3 class="h6 mb-1">Elena Rodriguez</h3>
+                                                    <p class="small text-muted mb-2">Level 12 • Eco Master</p>
+                                                    <div class="friend-actions">
+                                                        <button class="btn btn-sm btn-outline-success me-1">
+                                                            <i class="fas fa-envelope me-1"></i> Message
+                                                        </button>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-user me-1"></i> Profile
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Friend 4 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="friend-card d-flex align-items-center">
+                                                <img src="../assets/images/user-4.jpg" alt="James Wilson" class="rounded-circle friend-avatar me-3">
+                                                <div class="flex-grow-1">
+                                                    <h3 class="h6 mb-1">James Wilson</h3>
+                                                    <p class="small text-muted mb-2">Level 11 • Eco Champion</p>
+                                                    <div class="friend-actions">
+                                                        <button class="btn btn-sm btn-outline-success me-1">
+                                                            <i class="fas fa-envelope me-1"></i> Message
+                                                        </button>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-user me-1"></i> Profile
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Friend 5 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="friend-card d-flex align-items-center">
+                                                <img src="../assets/images/user-5.jpg" alt="Lisa Ahmed" class="rounded-circle friend-avatar me-3">
+                                                <div class="flex-grow-1">
+                                                    <h3 class="h6 mb-1">Lisa Ahmed</h3>
+                                                    <p class="small text-muted mb-2">Level 9 • Eco Ally</p>
+                                                    <div class="friend-actions">
+                                                        <button class="btn btn-sm btn-outline-success me-1">
+                                                            <i class="fas fa-envelope me-1"></i> Message
+                                                        </button>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-user me-1"></i> Profile
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Friend 6 -->
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="friend-card d-flex align-items-center">
+                                                <img src="../assets/images/user-6.jpg" alt="David Park" class="rounded-circle friend-avatar me-3">
+                                                <div class="flex-grow-1">
+                                                    <h3 class="h6 mb-1">David Park</h3>
+                                                    <p class="small text-muted mb-2">Level 9 • Eco Ally</p>
+                                                    <div class="friend-actions">
+                                                        <button class="btn btn-sm btn-outline-success me-1">
+                                                            <i class="fas fa-envelope me-1"></i> Message
+                                                        </button>
+                                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                                            <i class="fas fa-user me-1"></i> Profile
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Friend Requests -->
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-white border-0">
+                                    <h2 class="h5 mb-0">Friend Requests</h2>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="list-group list-group-flush">
+                                        <!-- Request 1 -->
+                                        <div class="list-group-item px-4 py-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="../assets/images/user-7.jpg" alt="Rachel Gomez" class="rounded-circle friend-avatar-sm me-3">
+                                                    <div>
+                                                        <h3 class="h6 mb-1">Rachel Gomez</h3>
+                                                        <p class="small text-muted mb-0">Level 8 • 2 mutual connections</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-success me-1">Accept</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">Decline</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Request 2 -->
+                                        <div class="list-group-item px-4 py-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="../assets/images/user-8.jpg" alt="Michael Tran" class="rounded-circle friend-avatar-sm me-3">
+                                                    <div>
+                                                        <h3 class="h6 mb-1">Michael Tran</h3>
+                                                        <p class="small text-muted mb-0">Level 7 • 1 mutual connection</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-success me-1">Accept</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">Decline</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Groups -->
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                                    <h2 class="h5 mb-0">My Groups</h2>
+                                    <a href="community.html#groups" class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-users me-1"></i> Browse Groups
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <!-- Group 1 -->
+                                        <div class="col-md-6">
+                                            <div class="group-item d-flex align-items-center">
+                                                <img src="../assets/images/group-zerowaste.jpg" alt="Zero Waste Living" class="rounded group-avatar me-3">
+                                                <div>
+                                                    <h3 class="h6 mb-1">Zero Waste Living</h3>
+                                                    <p class="small text-muted mb-0">2,876 members • Very Active</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Group 2 -->
+                                       <div class="col-md-6">
+                                        <div class="group-item d-flex align-items-center">
+                                            <img src="../assets/images/group-recipes.jpg" alt="Plant-Based Recipes" class="rounded group-avatar me-3">
+                                            <div>
+                                                <h3 class="h6 mb-1">Plant-Based Recipes</h3>
+                                                <p class="small text-muted mb-0">3,482 members • Very Active</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Group 3 -->
+                                    <div class="col-md-6">
+                                        <div class="group-item d-flex align-items-center">
+                                            <img src="../assets/images/group-cycling.jpg" alt="Cycling Commuters" class="rounded group-avatar me-3">
+                                            <div>
+                                                <h3 class="h6 mb-1">Cycling Commuters</h3>
+                                                <p class="small text-muted mb-0">1,057 members • Active</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Group 4 -->
+                                    <div class="col-md-6">
+                                        <div class="group-item d-flex align-items-center">
+                                            <img src="../assets/images/group-local.jpg" alt="Bay Area Eco-Network" class="rounded group-avatar me-3">
+                                            <div>
+                                                <h3 class="h6 mb-1">Bay Area Eco-Network</h3>
+                                                <p class="small text-muted mb-0">1,873 members • Active</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Settings Tab -->
+                    <div class="tab-pane fade" id="settings">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white border-0">
+                                <h2 class="h5 mb-0">Account Settings</h2>
+                            </div>
+                            <div class="card-body">
+                                <form id="accountSettingsForm">
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <label for="settingFirstName" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="settingFirstName" value="Alex">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="settingLastName" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="settingLastName" value="Johnson">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="settingEmail" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="settingEmail" value="alex.johnson@example.com">
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="settingLocation" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="settingLocation" value="San Francisco, CA">
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="settingBio" class="form-label">Bio</label>
+                                        <textarea class="form-control" id="settingBio" rows="3">Urban planner passionate about creating sustainable cities. I've been on a journey to reduce my environmental footprint since 2020, focusing on low-impact transportation, mindful consumption, and community building.</textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white border-0">
+                                <h2 class="h5 mb-0">Change Password</h2>
+                            </div>
+                            <div class="card-body">
+                                <form id="passwordChangeForm">
+                                    <div class="mb-3">
+                                        <label for="currentPassword" class="form-label">Current Password</label>
+                                        <input type="password" class="form-control" id="currentPassword">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="newPassword" class="form-label">New Password</label>
+                                        <input type="password" class="form-control" id="newPassword">
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword">
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success">Update Password</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-white border-0">
+                                <h2 class="h5 mb-0">Notification Settings</h2>
+                            </div>
+                            <div class="card-body">
+                                <form id="notificationSettingsForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email Notifications</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailChallenges" checked>
+                                            <label class="form-check-label" for="emailChallenges">
+                                                Challenge updates and reminders
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailAchievements" checked>
+                                            <label class="form-check-label" for="emailAchievements">
+                                                Achievement unlocks
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailFriends" checked>
+                                            <label class="form-check-label" for="emailFriends">
+                                                Friend requests and messages
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="emailNewsletter" checked>
+                                            <label class="form-check-label" for="emailNewsletter">
+                                                Monthly newsletter
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Push Notifications</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pushChallenges" checked>
+                                            <label class="form-check-label" for="pushChallenges">
+                                                Challenge updates and reminders
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pushAchievements" checked>
+                                            <label class="form-check-label" for="pushAchievements">
+                                                Achievement unlocks
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="pushFriends" checked>
+                                            <label class="form-check-label" for="pushFriends">
+                                                Friend requests and messages
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-success">Save Preferences</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-0">
+                                <h2 class="h5 mb-0">Data & Privacy</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h3 class="h6 mb-3">Data Export</h3>
+                                    <p class="text-muted small mb-3">Download a copy of all your EcoTracker data, including your profile, footprint calculations, challenges, and achievements.</p>
+                                    <button class="btn btn-outline-primary">
+                                        <i class="fas fa-download me-1"></i> Export Data
+                                    </button>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h3 class="h6 mb-3">Privacy Options</h3>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="profileVisibility" checked>
+                                        <label class="form-check-label" for="profileVisibility">
+                                            Make my profile visible to other users
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="shareActivities" checked>
+                                        <label class="form-check-label" for="shareActivities">
+                                            Share my activities and achievements in the community feed
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="shareChallenges" checked>
+                                        <label class="form-check-label" for="shareChallenges">
+                                            Allow friends to see my active challenges
+                                        </label>
+                                    </div>
+                                    <button class="btn btn-outline-primary mt-2">
+                                        <i class="fas fa-save me-1"></i> Save Privacy Settings
+                                    </button>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="h6 mb-3">Account Deletion</h3>
+                                    <p class="text-muted small mb-3">Permanently delete your account and all associated data. This action cannot be undone.</p>
+                                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+                                        <i class="fas fa-trash-alt me-1"></i> Delete Account
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Change Photo Modal -->
+<div class="modal fade" id="changePhotoModal" tabindex="-1" aria-labelledby="changePhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePhotoModalLabel">Change Profile Photo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-4">
+                    <img src="../assets/images/user-avatar.jpg" alt="Current Profile Photo" class="rounded-circle photo-preview mb-3">
+                </div>
+                <div class="mb-3">
+                    <label for="profilePhotoUpload" class="form-label">Upload New Photo</label>
+                    <input class="form-control" type="file" id="profilePhotoUpload">
+                    <div class="form-text">Recommended size: 400x400 pixels, max 2MB</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save Photo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editProfileForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label for="editFirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="editFirstName" value="Alex">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="editLastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="editLastName" value="Johnson">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="editLocation" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="editLocation" value="San Francisco, CA">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="editBio" class="form-label">Bio</label>
+                        <textarea class="form-control" id="editBio" rows="4">Urban planner passionate about creating sustainable cities. I've been on a journey to reduce my environmental footprint since 2020, focusing on low-impact transportation, mindful consumption, and community building.
+
+In my free time, I volunteer with local conservation groups and experiment with container gardening on my apartment balcony.</textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="editInterests" class="form-label">Sustainability Interests</label>
+                        <select class="form-select" id="editInterests" multiple>
+                            <option selected>Urban Sustainability</option>
+                            <option selected>Sustainable Transportation</option>
+                            <option selected>Waste Reduction</option>
+                            <option>Renewable Energy</option>
+                            <option selected>Plant-Based Diet</option>
+                            <option>Water Conservation</option>
+                            <option>Ethical Consumption</option>
+                        </select>
+                        <div class="form-text">Select multiple interests by holding Ctrl/Cmd while clicking</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Share Profile Modal -->
+<div class="modal fade" id="shareProfileModal" tabindex="-1" aria-labelledby="shareProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shareProfileModalLabel">Share Your Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center mb-4">Share your EcoTracker profile with friends or on social media</p>
+                
+                <div class="mb-4">
+                    <label class="form-label">Profile Link</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="https://ecotracker.org/user/alexjohnson" readonly>
+                        <button class="btn btn-outline-success" type="button" id="copyLinkBtn">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="mb-3">Share via:</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="fab fa-facebook-f me-1"></i> Facebook
+                        </a>
+                        <a href="#" class="btn btn-outline-info">
+                            <i class="fab fa-twitter me-1"></i> Twitter
+                        </a>
+                        <a href="#" class="btn btn-outline-success">
+                            <i class="fas fa-envelope me-1"></i> Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Account Modal -->
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteAccountModalLabel">Delete Account</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i> Warning: Account deletion is permanent
+                </div>
+                <p>This will permanently delete your EcoTracker account and all associated data, including:</p>
+                <ul>
+                    <li>Your profile information</li>
+                    <li>Your carbon footprint history</li>
+                    <li>All achievements and challenge progress</li>
+                    <li>Community connections and messages</li>
+                </ul>
+                <p>This action <strong>cannot be undone</strong>. Please confirm that you want to proceed.</p>
+                
+                <div class="mb-3">
+                    <label for="deleteConfirmation" class="form-label">Type "DELETE" to confirm</label>
+                    <input type="text" class="form-control" id="deleteConfirmation" placeholder="DELETE">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" disabled id="confirmDeleteBtn">Delete My Account</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white pt-5 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="footer-brand d-flex align-items-center mb-3">
+                    <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                    <span class="ms-2 h5 mb-0">EcoTracker</span>
+                </div>
+                <p class="mb-4">Making sustainable living accessible, measurable, and community-driven.</p>
+                <div class="social-icons">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h5 class="text-uppercase mb-4">Pages</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="../index.html" class="text-white-50">Home</a></li>
+                    <li class="mb-2"><a href="dashboard.html" class="text-white-50">Dashboard</a></li>
+                    <li class="mb-2"><a href="calculator.html" class="text-white-50">Calculator</a></li>
+                    <li class="mb-2"><a href="challenges.html" class="text-white-50">Challenges</a></li>
+                    <li class="mb-2"><a href="community.html" class="text-white-50">Community</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                <h5 class="text-uppercase mb-4">Resources</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="resources.html" class="text-white-50">Articles</a></li>
+                    <li class="mb-2"><a href="resources.html#videos" class="text-white-50">Videos</a></li>
+                    <li class="mb-2"><a href="resources.html#guides" class="text-white-50">Guides</a></li>
+                    <li class="mb-2"><a href="resources.html#research" class="text-white-50">Research</a></li>
+                    <li class="mb-2"><a href="about.html#faq" class="text-white-50">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-4">
+                <h5 class="text-uppercase mb-4">Contact Us</h5>
+                <div class="mb-3">
+                    <i class="fas fa-envelope me-2 text-success"></i>
+                    <a href="mailto:info@ecotracker.org" class="text-white-50">info@ecotracker.org</a>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-phone me-2 text-success"></i>
+                    <span class="text-white-50">(555) 123-4567</span>
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-map-marker-alt me-2 text-success"></i>
+                    <span class="text-white-50">123 Green Street, Eco City, EC 12345</span>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="mt-4 mb-4 border-secondary">
+        
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="small text-white-50 mb-0">&copy; 2025 EcoTracker. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#" class="text-white-50 small">Privacy Policy</a></li>
+                    <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                    <li class="list-inline-item"><a href="#" class="text-white-50 small">Terms of Use</a></li>
+                    <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                    <li class="list-inline-item"><a href="#" class="text-white-50 small">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom Scripts -->
+<script src="../js/main.js"></script>
+<script src="../js/pages/profile.js"></script>
+</body>
+</html>

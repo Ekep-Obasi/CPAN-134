@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Calculator | EcoTracker</title>
+    <meta name="description" content="Calculate your personal carbon footprint and find ways to reduce your environmental impact.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages/calculator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                <span class="ms-2 logo-text">EcoTracker</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="calculator.html">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 d-flex align-items-center">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                            <span>Alex Johnson</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../index.html">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="calculator-header bg-dark text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold mb-3">Carbon Footprint Calculator</h1>
+                    <p class="lead mb-4">Calculate your personal carbon footprint to understand your impact on the environment and discover areas for improvement.</p>
+                    <div class="d-flex align-items-center">
+                        <div class="me-4">
+                            <i class="fas fa-calculator text-success me-2"></i>
+                            <span>5-minute assessment</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-chart-pie text-success me-2"></i>
+                            <span>Detailed breakdown</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="../assets/images/calculator-illustration.svg" alt="Carbon Calculator" class="img-fluid calculator-illustration">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="text-center mb-4">
+                                <h2 class="h3 mb-3">Let's calculate your carbon footprint</h2>
+                                <p class="text-muted">Answer the questions below to get your personalized results.</p>
+                            </div>
+                            
+                            <form id="calculatorForm" data-validate="true">
+                                <!-- Progress Bar -->
+                                <div class="progress mb-4" style="height: 8px;">
+                                    <div class="progress-bar bg-success" id="calculatorProgress" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                
+                                <!-- Step Indicators -->
+                                <ul class="nav nav-pills nav-justified calculator-steps mb-4">
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link active" data-step="1">
+                                            <span class="step-number">1</span>
+                                            <span class="d-none d-md-inline">Transport</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link" data-step="2">
+                                            <span class="step-number">2</span>
+                                            <span class="d-none d-md-inline">Home</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link" data-step="3">
+                                            <span class="step-number">3</span>
+                                            <span class="d-none d-md-inline">Food</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link" data-step="4">
+                                            <span class="step-number">4</span>
+                                            <span class="d-none d-md-inline">Lifestyle</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                
+                                <!-- Step 1: Transport -->
+                                <div class="calculator-step active" id="step1">
+                                    <h3 class="h5 mb-4">Transport & Travel</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label for="transportMode" class="form-label">What is your primary mode of transportation?</label>
+                                        <select class="form-select" id="transportMode" required>
+                                            <option value="" selected disabled>Select an option</option>
+                                            <option value="car">Car (petrol/diesel)</option>
+                                            <option value="electriccar">Electric car</option>
+                                            <option value="publictransport">Public transportation</option>
+                                            <option value="bicycle">Bicycle</option>
+                                            <option value="walk">Walking</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="transportDistance" class="form-label">Approximately how many kilometers do you travel per week?</label>
+                                        <input type="number" class="form-select" id="transportDistance" min="0" step="1" required>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Do you fly frequently?</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flightFrequency" id="flightFrequencyNo" value="no" checked>
+                                            <label class="form-check-label" for="flightFrequencyNo">
+                                                No, rarely or never
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flightFrequency" id="flightFrequencyOccasional" value="occasional">
+                                            <label class="form-check-label" for="flightFrequencyOccasional">
+                                                Occasionally (1-2 round trips per year)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flightFrequency" id="flightFrequencyFrequent" value="frequent">
+                                            <label class="form-check-label" for="flightFrequencyFrequent">
+                                                Frequently (3-5 round trips per year)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flightFrequency" id="flightFrequencyVeryFrequent" value="veryfrequent">
+                                            <label class="form-check-label" for="flightFrequencyVeryFrequent">
+                                                Very frequently (6+ round trips per year)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-success next-step">Next: Home Energy</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 2: Home Energy -->
+                                <div class="calculator-step" id="step2">
+                                    <h3 class="h5 mb-4">Home Energy Usage</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label for="householdSize" class="form-label">How many people live in your household?</label>
+                                        <select class="form-select" id="householdSize" required>
+                                            <option value="" selected disabled>Select an option</option>
+                                            <option value="1">1 person</option>
+                                            <option value="2">2 people</option>
+                                            <option value="3">3 people</option>
+                                            <option value="4">4 people</option>
+                                            <option value="5">5+ people</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="homeType" class="form-label">What type of home do you live in?</label>
+                                        <select class="form-select" id="homeType" required>
+                                            <option value="" selected disabled>Select an option</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="small">Small house</option>
+                                            <option value="medium">Medium house</option>
+                                            <option value="large">Large house</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="energyConsumption" class="form-label">What is your average monthly electricity bill?</label>
+                                        <select class="form-select" id="energyConsumption" required>
+                                            <option value="" selected disabled>Select an option</option>
+                                            <option value="low">Low ($0-50)</option>
+                                            <option value="medium">Medium ($51-100)</option>
+                                            <option value="high">High ($101-200)</option>
+                                            <option value="veryhigh">Very high ($200+)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Do you use renewable energy?</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="renewableEnergy" id="renewableEnergyYes" value="yes">
+                                            <label class="form-check-label" for="renewableEnergyYes">
+                                                Yes, I have solar panels or purchase green energy
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="renewableEnergy" id="renewableEnergyPartial" value="partial">
+                                            <label class="form-check-label" for="renewableEnergyPartial">
+                                                Partially, some of my energy comes from renewable sources
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="renewableEnergy" id="renewableEnergyNo" value="no" checked>
+                                            <label class="form-check-label" for="renewableEnergyNo">
+                                                No, I use conventional energy sources
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="button" class="btn btn-success next-step">Next: Food</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 3: Food -->
+                                <div class="calculator-step" id="step3">
+                                    <h3 class="h5 mb-4">Food & Diet</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label for="dietType" class="form-label">Which best describes your diet?</label>
+                                        <select class="form-select" id="dietType" required>
+                                            <option value="" selected disabled>Select an option</option>
+                                            <option value="vegan">Vegan (no animal products)</option>
+                                            <option value="vegetarian">Vegetarian (no meat, but dairy/eggs)</option>
+                                            <option value="pescatarian">Pescatarian (vegetarian + seafood)</option>
+                                            <option value="lowmeat">Low meat consumption (meat 1-3 times per week)</option>
+                                            <option value="omnivore">Regular omnivore (meat most days)</option>
+                                            <option value="highmeat">High meat consumption (meat multiple times per day)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Do you prioritize local or organic food?</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="localFood" id="localFoodAlways" value="always">
+                                            <label class="form-check-label" for="localFoodAlways">
+                                                Always or almost always
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="localFood" id="localFoodOften" value="often">
+                                            <label class="form-check-label" for="localFoodOften">
+                                                Often
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="localFood" id="localFoodSometimes" value="sometimes" checked>
+                                            <label class="form-check-label" for="localFoodSometimes">
+                                                Sometimes
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="localFood" id="localFoodRarely" value="rarely">
+                                            <label class="form-check-label" for="localFoodRarely">
+                                                Rarely or never
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">How much food do you waste?</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="foodWaste" id="foodWasteVeryLittle" value="verylittle">
+                                            <label class="form-check-label" for="foodWasteVeryLittle">
+                                                Very little (I use almost everything)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="foodWaste" id="foodWasteSome" value="some" checked>
+                                            <label class="form-check-label" for="foodWasteSome">
+                                                Some (occasional leftovers or spoiled food)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="foodWaste" id="foodWasteSignificant" value="significant">
+                                            <label class="form-check-label" for="foodWasteSignificant">
+                                                Significant (regularly throw away food)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="button" class="btn btn-success next-step">Next: Lifestyle</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 4: Lifestyle -->
+                                <div class="calculator-step" id="step4">
+                                    <h3 class="h5 mb-4">Lifestyle & Consumption</h3>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">How would you describe your shopping habits?</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="shoppingHabits" id="shoppingHabitsMinimal" value="minimal">
+                                            <label class="form-check-label" for="shoppingHabitsMinimal">
+                                                Minimal (buy only what I need)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="shoppingHabits" id="shoppingHabitsModerate" value="moderate" checked>
+                                            <label class="form-check-label" for="shoppingHabitsModerate">
+                                                Moderate (occasional non-essential purchases)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="shoppingHabits" id="shoppingHabitsFrequent" value="frequent">
+                                            <label class="form-check-label" for="shoppingHabitsFrequent">
+                                                Frequent (regular shopping for new items)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Do you recycle regularly?</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="wasteRecycling" checked>
+                                            <label class="form-check-label" for="wasteRecycling">
+                                                Yes, I recycle paper, plastic, glass, and metal
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Do you compost food waste?</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="wasteComposting">
+                                            <label class="form-check-label" for="wasteComposting">
+                                                Yes, I compost food scraps and yard waste
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Which water-saving measures do you use? (Select all that apply)</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="waterSavingShowers" checked>
+                                            <label class="form-check-label" for="waterSavingShowers">
+                                                Short showers (under 5 minutes)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="waterSavingFixtures">
+                                            <label class="form-check-label" for="waterSavingFixtures">
+                                                Water-efficient fixtures (low-flow showerheads, toilets)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="waterSavingFullLoads" checked>
+                                            <label class="form-check-label" for="waterSavingFullLoads">
+                                                Only run dishwasher/washing machine with full loads
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="submit" class="btn btn-success">Calculate My Footprint</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Section (initially hidden) -->
+            <div class="row mt-5 d-none" id="calculatorResults">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-sm results-card">
+                        <div class="card-body p-4 p-lg-5">
+                            <div class="text-center mb-5">
+                                <span class="badge bg-success mb-2">Your Results</span>
+                                <h2 class="h3 mb-3">Your Annual Carbon Footprint</h2>
+                                <div class="footprint-result mb-4">
+                                    <span id="totalEmissions">5.3</span>
+                                    <span class="text-muted">tons CO₂e per year</span>
+                                </div>
+                                <div id="footprintComparison" class="alert alert-success"></div>
+                            </div>
+                            
+                            <div class="row mb-5">
+                                <div class="col-md-6">
+                                    <h3 class="h5 mb-4">Breakdown by Category</h3>
+                                    <div class="chart-container" style="height: 300px;">
+                                        <canvas id="breakdownChart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="h5 mb-4">Suggested Challenges</h3>
+                                    <p class="text-muted mb-3">Based on your results, we recommend these challenges to reduce your footprint:</p>
+                                    <ul class="list-group" id="suggestedChallenges">
+                                        <!-- Challenges will be dynamically added here -->
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <p class="mb-4">Ready to start reducing your carbon footprint?</p>
+                                <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                                    <a href="challenges.html" class="btn btn-success">Join a Challenge</a>
+                                    <a href="dashboard.html" class="btn btn-outline-primary">Go to Dashboard</a>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="window.print()">Print Results</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Resources -->
+    <section class="resources-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="h3 mb-3">Learn More About Carbon Footprints</h2>
+                <p class="text-muted">Explore these resources to better understand your environmental impact.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="../assets/images/resource-article1.jpg" class="card-img-top" alt="Understanding Carbon Footprints">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Understanding Carbon Footprints</h3>
+                            <p class="card-text">Learn the basics of carbon footprints and why they matter for climate action.</p>
+                            <a href="resources.html#understanding" class="icon-link">
+                                Read Article
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-img-top video-thumbnail">
+                            <img src="../assets/images/resource-video.jpg" alt="Video Thumbnail">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h5 card-title">The Carbon Cycle Explained</h3>
+                            <p class="card-text">Watch this informative video about how carbon moves through our environment.</p>
+                            <a href="resources.html#videos" class="icon-link">
+                                Watch Video
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="../assets/images/resource-guide.jpg" class="card-img-top" alt="Home Energy Guide">
+                        <div class="card-body">
+                            <h3 class="h5 card-title">Home Energy Efficiency Guide</h3>
+                            <p class="card-text">Practical tips for reducing your home energy consumption and carbon footprint.</p>
+                            <a href="resources.html#guides" class="icon-link">
+                                Read Guide
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand d-flex align-items-center mb-3">
+                        <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                        <span class="ms-2 h5 mb-0">EcoTracker</span>
+                    </div>
+                    <p class="mb-4">Making sustainable living accessible, measurable, and community-driven.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Pages</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../index.html" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="dashboard.html" class="text-white-50">Dashboard</a></li>
+                        <li class="mb-2"><a href="calculator.html" class="text-white-50">Calculator</a></li>
+                        <li class="mb-2"><a href="challenges.html" class="text-white-50">Challenges</a></li>
+                        <li class="mb-2"><a href="community.html" class="text-white-50">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="resources.html" class="text-white-50">Articles</a></li>
+                        <li class="mb-2"><a href="resources.html#videos" class="text-white-50">Videos</a></li>
+                        <li class="mb-2"><a href="resources.html#guides" class="text-white-50">Guides</a></li>
+                        <li class="mb-2"><a href="resources.html#research" class="text-white-50">Research</a></li>
+                        <li class="mb-2"><a href="about.html#faq" class="text-white-50">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="text-uppercase mb-4">Contact Us</h5>
+                    <div class="mb-3">
+                        <i class="fas fa-envelope me-2 text-success"></i>
+                        <a href="mailto:info@ecotracker.org" class="text-white-50">info@ecotracker.org</a>
+                    </div>
+                    <div class="mb-3">
+                        <i class="fas fa-phone me-2 text-success"></i>
+                        <span class="text-white-50">(555) 123-4567</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2 text-success"></i>
+                        <span class="text-white-50">123 Green Street, Eco City, EC 12345</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4 border-secondary">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="small text-white-50 mb-0">&copy; 2025 EcoTracker. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Privacy Policy</a></li>
+                        <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Terms of Use</a></li>
+                        <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/validation.js"></script>
+    <script src="../js/pages/calculator.js"></script>
+</body>
+</html>

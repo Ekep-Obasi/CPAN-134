@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | EcoTracker</title>
+    <meta name="description" content="Educational resources to help you understand environmental issues and sustainable living solutions.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages/resources.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                <span class="ms-2 logo-text">EcoTracker</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculator.html">Carbon Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 d-flex align-items-center">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                            <span>Alex Johnson</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../index.html">Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="resources-header py-5 bg-info text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold mb-3">Learning Resources</h1>
+                    <p class="lead mb-4">Explore our collection of articles, videos, guides, and research to deepen your understanding of environmental issues and sustainable living solutions.</p>
+                    <div class="d-flex align-items-center">
+                        <div class="me-4">
+                            <i class="fas fa-book-open text-white-50 me-2"></i>
+                            <span>158 articles</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-video text-white-50 me-2"></i>
+                            <span>42 videos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block text-center">
+                    <img src="../assets/images/resources-illustration.svg" alt="Resources" class="img-fluid resources-illustration">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Resource Search & Categories -->
+    <section class="search-section py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="search-box shadow-sm">
+                        <form class="d-flex">
+                            <input class="form-control form-control-lg" type="search" placeholder="Search for resources..." aria-label="Search">
+                            <button class="btn btn-success" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-tabs mt-5">
+                <ul class="nav nav-pills nav-justified" id="resourceTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="articles-tab" data-bs-toggle="tab" data-bs-target="#articles" type="button" role="tab" aria-controls="articles" aria-selected="true">
+                            <i class="fas fa-file-alt me-2"></i> Articles
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="videos-tab" data-bs-toggle="tab" data-bs-target="#videos" type="button" role="tab" aria-controls="videos" aria-selected="false">
+                            <i class="fas fa-video me-2"></i> Videos
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="guides-tab" data-bs-toggle="tab" data-bs-target="#guides" type="button" role="tab" aria-controls="guides" aria-selected="false">
+                            <i class="fas fa-book me-2"></i> Guides
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="research-tab" data-bs-toggle="tab" data-bs-target="#research" type="button" role="tab" aria-controls="research" aria-selected="false">
+                            <i class="fas fa-chart-bar me-2"></i> Research
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Resources Content -->
+    <section class="resources-content py-5">
+        <div class="container">
+            <div class="tab-content" id="resourceTabContent">
+                <!-- Articles Tab -->
+                <div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h3 mb-0">Featured Articles</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="articleSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort by: Newest
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="articleSortDropdown">
+                                <li><a class="dropdown-item active" href="#">Newest</a></li>
+                                <li><a class="dropdown-item" href="#">Most Popular</a></li>
+                                <li><a class="dropdown-item" href="#">Trending</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Articles Row -->
+                    <div class="row g-4 mb-5">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card resource-card featured-article h-100">
+                                <div class="row g-0 h-100">
+                                    <div class="col-md-6">
+                                        <img src="../assets/images/article-main.jpg" class="img-fluid rounded-start h-100" alt="Main Article" style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body d-flex flex-column h-100">
+                                            <span class="badge bg-info mb-2">Climate</span>
+                                            <h3 class="card-title">Understanding Carbon Footprints: A Comprehensive Guide</h3>
+                                            <p class="card-text">Learn what carbon footprints are, how they're calculated, and why they matter for climate action. This comprehensive guide breaks down complex concepts into easy-to-understand terms.</p>
+                                            <div class="mt-auto">
+                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                    <span class="text-muted small">12 min read</span>
+                                                    <span class="text-muted small">April 10, 2025</span>
+                                                </div>
+                                                <a href="#" class="btn btn-outline-primary">Read Article</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="row g-4 h-100">
+                                <div class="col-sm-6 col-lg-12">
+                                    <div class="card resource-card h-100">
+                                        <div class="card-body">
+                                            <span class="badge bg-success mb-2">Food</span>
+                                            <h3 class="card-title h5">The Environmental Impact of Food Choices</h3>
+                                            <p class="card-text small">How different diets affect the planet, from water usage to greenhouse gas emissions.</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted smaller">8 min read</span>
+                                                <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-12">
+                                    <div class="card resource-card h-100">
+                                        <div class="card-body">
+                                            <span class="badge bg-warning text-dark mb-2">Energy</span>
+                                            <h3 class="card-title h5">Renewable Energy: Myths and Facts</h3>
+                                            <p class="card-text small">Separating truth from misconception about solar, wind, and other renewable energy sources.</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="text-muted smaller">10 min read</span>
+                                                <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article Categories Selection -->
+                    <div class="article-categories mb-4">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-primary active">All Topics</button>
+                            <button class="btn btn-outline-primary">Climate</button>
+                            <button class="btn btn-outline-primary">Energy</button>
+                            <button class="btn btn-outline-primary">Food</button>
+                            <button class="btn btn-outline-primary">Waste</button>
+                            <button class="btn btn-outline-primary">Transport</button>
+                            <button class="btn btn-outline-primary">Water</button>
+                            <button class="btn btn-outline-primary">Lifestyle</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Articles Grid -->
+                    <div class="row g-4 mb-4">
+                        <!-- Article 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <img src="../assets/images/article-recycling.jpg" class="card-img-top" alt="Recycling Guide">
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Waste</span>
+                                    <h3 class="card-title h5">Beyond Recycling: The Zero Waste Movement</h3>
+                                    <p class="card-text">Explore the principles of zero waste living and practical steps to reduce your household waste dramatically.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">7 min read</span>
+                                        <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <img src="../assets/images/article-transport.jpg" class="card-img-top" alt="Green Transportation">
+                                <div class="card-body">
+                                    <span class="badge bg-warning text-dark mb-2">Transport</span>
+                                    <h3 class="card-title h5">The Future of Sustainable Transportation</h3>
+                                    <p class="card-text">From electric vehicles to innovative public transit systems, discover how we'll move in a low-carbon future.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">9 min read</span>
+                                        <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <img src="../assets/images/article-water.jpg" class="card-img-top" alt="Water Conservation">
+                                <div class="card-body">
+                                    <span class="badge bg-info mb-2">Water</span>
+                                    <h3 class="card-title h5">Home Water Conservation Strategies</h3>
+                                    <p class="card-text">Effective techniques to reduce water usage at home while maintaining comfort and convenience.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">6 min read</span>
+                                        <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <img src="../assets/images/article-fashion.jpg" class="card-img-top" alt="Sustainable Fashion">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary mb-2">Lifestyle</span>
+                                    <h3 class="card-title h5">Sustainable Fashion: Beyond the Trends</h3>
+                                    <p class="card-text">How to build an eco-friendly wardrobe that minimizes environmental impact without sacrificing style.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">8 min read</span>
+                                        <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <img src="../assets/images/article-energy.jpg" class="card-img-top" alt="Home Energy">
+                                <div class="card-body">
+                                    <span class="badge bg-warning text-dark mb-2">Energy</span>
+                                    <h3 class="card-title h5">Smart Home Energy Management</h3>
+                                    <p class="card-text">Leverage technology to optimize your home's energy efficiency and reduce utility bills while helping the planet.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">10 min read</span>
+                                        <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <img src="../assets/images/article-gardening.jpg" class="card-img-top" alt="Urban Gardening">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">Food</span>
+                                    <h3 class="card-title h5">Urban Gardening: Growing Food in Small Spaces</h3>
+                                    <p class="card-text">Practical methods for cultivating fruits, vegetables, and herbs in apartments, balconies, and small yards.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted small">12 min read</span>
+                                        <a href="#" class="btn btn-sm btn-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-spinner me-2"></i> Load More Articles
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Videos Tab -->
+                <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h3 mb-0">Educational Videos</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="videoSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort by: Newest
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="videoSortDropdown">
+                                <li><a class="dropdown-item active" href="#">Newest</a></li>
+                                <li><a class="dropdown-item" href="#">Most Viewed</a></li>
+                                <li><a class="dropdown-item" href="#">Highest Rated</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Video -->
+                    <div class="row mb-5">
+                        <div class="col-lg-10 mx-auto">
+                            <div class="card resource-card featured-video">
+                                <div class="video-thumbnail-large">
+                                    <img src="../assets/images/video-main.jpg" alt="Featured Video" class="img-fluid rounded">
+                                    <div class="play-button-large">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-primary mb-2">Featured</span>
+                                    <h3 class="card-title">The Carbon Cycle Explained: How Our Planet Processes Carbon</h3>
+                                    <p class="card-text">A comprehensive exploration of the carbon cycle, including how human activities have disrupted natural processes and what that means for our climate.</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="text-muted me-3"><i class="far fa-clock me-1"></i> 18:24</span>
+                                            <span class="text-muted"><i class="far fa-calendar-alt me-1"></i> April 5, 2025</span>
+                                        </div>
+                                        <a href="#" class="btn btn-primary">Watch Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Categories -->
+                    <div class="video-categories mb-4">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-primary active">All Videos</button>
+                            <button class="btn btn-outline-primary">Explainers</button>
+                            <button class="btn btn-outline-primary">Tutorials</button>
+                            <button class="btn btn-outline-primary">Documentaries</button>
+                            <button class="btn btn-outline-primary">Interviews</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Videos Grid -->
+                    <div class="row g-4 mb-4">
+                        <!-- Video 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <div class="video-thumbnail">
+                                    <img src="../assets/images/video-renewable.jpg" alt="Renewable Energy" class="img-fluid rounded-top">
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="video-duration">12:37</div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-warning text-dark mb-2">Energy</span>
+                                    <h3 class="card-title h5">How Solar Panels Actually Work</h3>
+                                    <p class="card-text small">A clear explanation of the science behind photovoltaic cells and how they convert sunlight into electricity.</p>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <div class="video-thumbnail">
+                                    <img src="../assets/images/video-composting.jpg" alt="Composting" class="img-fluid rounded-top">
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="video-duration">8:45</div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">Food</span>
+                                    <h3 class="card-title h5">Home Composting: A Step-by-Step Guide</h3>
+                                    <p class="card-text small">Learn how to start and maintain a successful compost bin, even in small spaces or apartments.</p>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <div class="video-thumbnail">
+                                    <img src="../assets/images/video-plastics.jpg" alt="Plastic Pollution" class="img-fluid rounded-top">
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="video-duration">15:22</div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Waste</span>
+                                    <h3 class="card-title h5">The Lifecycle of Plastic: From Creation to Pollution</h3>
+                                    <p class="card-text small">Tracking plastic from production to disposal, and the environmental consequences at each stage.</p>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <div class="video-thumbnail">
+                                    <img src="../assets/images/video-water.jpg" alt="Water Conservation" class="img-fluid rounded-top">
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="video-duration">9:18</div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-info mb-2">Water</span>
+                                    <h3 class="card-title h5">Simple Water Conservation Techniques for Your Home</h3>
+                                    <p class="card-text small">Practical DIY projects and habit changes that can significantly reduce your water consumption.</p>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <div class="video-thumbnail">
+                                    <img src="../assets/images/video-transport.jpg" alt="Electric Vehicles" class="img-fluid rounded-top">
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="video-duration">14:52</div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-warning text-dark mb-2">Transport</span>
+                                    <h3 class="card-title h5">Electric Vehicles: Myths vs. Reality</h3>
+                                    <p class="card-text small">Addressing common misconceptions about electric vehicles and their environmental impact.</p>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card h-100">
+                                <div class="video-thumbnail">
+                                    <img src="../assets/images/video-interview.jpg" alt="Expert Interview" class="img-fluid rounded-top">
+                                    <div class="play-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="video-duration">22:15</div>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-primary mb-2">Interview</span>
+                                    <h3 class="card-title h5">Interview with Dr. Emma Chang: Climate Solutions</h3>
+                                    <p class="card-text small">Leading climate scientist discusses promising solutions to the climate crisis at individual and systemic levels.</p>
+                                    <a href="#" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-spinner me-2"></i> Load More Videos
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Guides Tab -->
+                <div class="tab-pane fade" id="guides" role="tabpanel" aria-labelledby="guides-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h3 mb-0">Practical Guides</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="guideSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort by: Most Popular
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="guideSortDropdown">
+                                <li><a class="dropdown-item" href="#">Newest</a></li>
+                                <li><a class="dropdown-item active" href="#">Most Popular</a></li>
+                                <li><a class="dropdown-item" href="#">Beginner Friendly</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Guide Categories -->
+                    <div class="guide-categories mb-4">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-success active">All Guides</button>
+                            <button class="btn btn-outline-success">Beginner</button>
+                            <button class="btn btn-outline-success">Intermediate</button>
+                            <button class="btn btn-outline-success">Advanced</button>
+                            <button class="btn btn-outline-success">DIY Projects</button>
+                            <button class="btn btn-outline-success">Quick Reference</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Guides -->
+                    <div class="row g-4 mb-5">
+                        <!-- Guide 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card guide-card h-100">
+                                <div class="card-body">
+                                    <div class="guide-icon bg-success text-white">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <span class="badge bg-success mb-2">Beginner</span>
+                                    <h3 class="card-title">The Complete Guide to Home Composting</h3>
+                                    <p class="card-text">Learn how to turn kitchen scraps and yard waste into valuable compost for your garden. This comprehensive guide covers everything from setting up your first bin to troubleshooting common problems.</p>
+                                    <div class="guide-meta d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted small"><i class="far fa-clock me-1"></i> 15 min read</span>
+                                        <span class="text-muted small"><i class="far fa-file-pdf me-1"></i> Downloadable</span>
+                                    </div>
+                                    <a href="#" class="btn btn-outline-success w-100">View Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Guide 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card guide-card h-100">
+                                <div class="card-body">
+                                    <div class="guide-icon bg-primary text-white">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <span class="badge bg-warning text-dark mb-2">Intermediate</span>
+                                    <h3 class="card-title">Home Energy Audit: DIY Assessment</h3>
+                                    <p class="card-text">Conduct your own home energy audit to identify inefficiencies and prioritize improvements. Includes checklists, measurement techniques, and recommendations for improvements.</p>
+                                    <div class="guide-meta d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted small"><i class="far fa-clock me-1"></i> 25 min read</span>
+                                        <span class="text-muted small"><i class="far fa-file-pdf me-1"></i> Downloadable</span>
+                                    </div>
+                                    <a href="#" class="btn btn-outline-success w-100">View Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Guide 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card resource-card guide-card h-100">
+                                <div class="card-body">
+                                    <div class="guide-icon bg-danger text-white">
+                                        <i class="fas fa-recycle"></i>
+                                    </div>
+                                    <span class="badge bg-success mb-2">Beginner</span>
+                                    <h3 class="card-title">Zero Waste Kitchen: A Step-by-Step Transformation</h3>
+                                    <p class="card-text">Transform your kitchen into a zero waste zone with practical swaps, storage solutions, and shopping strategies that reduce packaging waste and food waste.</p>
+                                    <div class="guide-meta d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted small"><i class="far fa-clock me-1"></i> 20 min read</span>
+                                        <span class="text-muted small"><i class="far fa-file-pdf me-1"></i> Downloadable</span>
+                                    </div>
+                                    <a href="#" class="btn btn-outline-success w-100">View Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Guide List -->
+                    <div class="row mb-4">
+                        <div class="col-lg-10 mx-auto">
+                            <div class="list-group guide-list">
+                                <!-- Guide Item 1 -->
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                                    <div class="guide-icon-sm bg-info text-white">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                        <div>
+                                            <h3 class="h6 mb-0">Water-Saving Fixtures: Installation Guide</h3>
+                                            <p class="mb-0 small text-muted">Step-by-step instructions for installing low-flow showerheads, faucet aerators, and water-efficient toilets.</p>
+                                            <span class="badge bg-info mt-2">DIY Project</span>
+                                        </div>
+                                        <div class="text-end d-flex flex-column align-items-end">
+                                            <span class="text-muted small mb-2">12 min read</span>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Guide Item 2 -->
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                                    <div class="guide-icon-sm bg-success text-white">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                        <div>
+                                            <h3 class="h6 mb-0">Seasonal Meal Planning for Sustainability</h3>
+                                            <p class="mb-0 small text-muted">Templates and strategies for planning meals around seasonal, local ingredients to reduce your food footprint.</p>
+                                            <span class="badge bg-success mt-2">Beginner</span>
+                                        </div>
+                                        <div class="text-end d-flex flex-column align-items-end">
+                                            <span class="text-muted small mb-2">15 min read</span>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Guide Item 3 -->
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                                    <div class="guide-icon-sm bg-warning text-white">
+                                        <i class="fas fa-bicycle"></i>
+                                    </div>
+                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                        <div>
+                                            <h3 class="h6 mb-0">Bicycle Commuting: The Complete Starter Guide</h3>
+                                            <p class="mb-0 small text-muted">Everything you need to know to start commuting by bike, from choosing the right bicycle to planning safe routes.</p>
+                                            <span class="badge bg-warning text-dark mt-2">Intermediate</span>
+                                        </div>
+                                        <div class="text-end d-flex flex-column align-items-end">
+                                            <span class="text-muted small mb-2">18 min read</span>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Guide Item 4 -->
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                                    <div class="guide-icon-sm bg-danger text-white">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </div>
+                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                        <div>
+                                            <h3 class="h6 mb-0">Household Hazardous Waste: Safe Disposal Guide</h3>
+                                            <p class="mb-0 small text-muted">Learn how to properly dispose of batteries, electronics, chemicals, and other hazardous household items.</p>
+                                            <span class="badge bg-success mt-2">Quick Reference</span>
+                                        </div>
+                                        <div class="text-end d-flex flex-column align-items-end">
+                                            <span class="text-muted small mb-2">10 min read</span>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Guide Item 5 -->
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+                                    <div class="guide-icon-sm bg-primary text-white">
+                                        <i class="fas fa-solar-panel"></i>
+                                    </div>
+                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                        <div>
+                                            <h3 class="h6 mb-0">Solar Power: Evaluation and Planning Guide</h3>
+                                            <p class="mb-0 small text-muted">How to assess your home's solar potential, understand financing options, and select the right system.</p>
+                                            <span class="badge bg-danger mt-2">Advanced</span>
+                                        </div>
+                                        <div class="text-end d-flex flex-column align-items-end">
+                                            <span class="text-muted small mb-2">30 min read</span>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-spinner me-2"></i> Load More Guides
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Research Tab -->
+                <div class="tab-pane fade" id="research" role="tabpanel" aria-labelledby="research-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h3 mb-0">Research & Reports</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="researchSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort by: Most Recent
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="researchSortDropdown">
+                                <li><a class="dropdown-item active" href="#">Most Recent</a></li>
+                                <li><a class="dropdown-item" href="#">Most Cited</a></li>
+                                <li><a class="dropdown-item" href="#">Alphabetical</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Research Categories -->
+                    <div class="research-categories mb-4">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-secondary active">All Research</button>
+                            <button class="btn btn-outline-secondary">Climate Science</button>
+                            <button class="btn btn-outline-secondary">Renewable Energy</button>
+                            <button class="btn btn-outline-secondary">Sustainable Agriculture</button>
+                            <button class="btn btn-outline-secondary">Conservation</button>
+                            <button class="btn btn-outline-secondary">Policy Analysis</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Research -->
+                    <div class="card resource-card mb-5">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-primary mb-2">Featured Research</span>
+                                    <h3 class="card-title">Climate Change Mitigation: Assessment of Individual Actions</h3>
+                                </div>
+                                <span class="badge bg-light text-dark">March 2025</span>
+                            </div>
+                            <p class="card-text">This comprehensive study quantifies the impact of individual lifestyle choices on greenhouse gas emissions. Using data from over 10,000 households across 15 countries, researchers identify the most effective personal actions for climate change mitigation.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div>
+                                    <span class="badge bg-light text-dark me-2">Climate Science</span>
+                                    <span class="badge bg-light text-dark me-2">Behavior Change</span>
+                                    <span class="badge bg-light text-dark">Public Policy</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Read Full Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Research List -->
+                    <div class="list-group research-list mb-4">
+                        <!-- Research Item 1 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="h6 mb-0">Renewable Energy Transition: Economic Impact Analysis</h3>
+                                <span class="badge bg-secondary">February 2025</span>
+                            </div>
+                            <p class="small mb-2">This report analyzes the economic implications of transitioning to renewable energy sources, including job creation, industry transformation, and GDP impacts.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-warning text-dark me-1">Renewable Energy</span>
+                                    <span class="badge bg-warning text-dark">Economics</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Report</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Item 2 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="h6 mb-0">Urban Farming: Food Security Analysis in Metropolitan Areas</h3>
+                                <span class="badge bg-secondary">January 2025</span>
+                            </div>
+                            <p class="small mb-2">Examines the potential for urban agriculture to enhance food security and reduce transportation emissions in major cities worldwide.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-success me-1">Sustainable Agriculture</span>
+                                    <span class="badge bg-success">Urban Planning</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Report</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Item 3 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="h6 mb-0">Marine Plastic Pollution: Sources, Pathways, and Solutions</h3>
+                                <span class="badge bg-secondary">December 2024</span>
+                            </div>
+                            <p class="small mb-2">A comprehensive analysis of plastic pollution in marine environments, tracking major sources and evaluating intervention strategies.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-info me-1">Conservation</span>
+                                    <span class="badge bg-info">Ocean Health</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Report</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Item 4 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="h6 mb-0">Carbon Pricing Mechanisms: Comparative Policy Analysis</h3>
+                                <span class="badge bg-secondary">November 2024</span>
+                            </div>
+                            <p class="small mb-2">Evaluates the effectiveness of different carbon pricing policies across 25 countries, including carbon taxes and cap-and-trade systems.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-secondary me-1">Policy Analysis</span>
+                                    <span class="badge bg-secondary">Economics</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Report</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Research Item 5 -->
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="h6 mb-0">Biodiversity Conservation: Effectiveness of Protected Areas</h3>
+                                <span class="badge bg-secondary">October 2024</span>
+                            </div>
+                            <p class="small mb-2">Assesses the impact of protected area designations on biodiversity conservation, including factors that contribute to successful outcomes.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-danger me-1">Conservation</span>
+                                    <span class="badge bg-danger">Biodiversity</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Academic Publications -->
+                    <h3 class="h5 mb-3">Recent Academic Publications</h3>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Authors</th>
+                                    <th>Journal</th>
+                                    <th>Published</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Comparing carbon footprints of plant-based meat alternatives with conventional animal products</td>
+                                    <td>Johnson, K., et al.</td>
+                                    <td>Journal of Sustainable Food Systems</td>
+                                    <td>March 2025</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Abstract</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Microplastics in freshwater systems: Distribution patterns and ecological impacts</td>
+                                    <td>Zhang, L., et al.</td>
+                                    <td>Environmental Science & Technology</td>
+                                    <td>February 2025</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Abstract</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Green roofs for urban heat island mitigation: A case study in metropolitan areas</td>
+                                    <td>Rodriguez, E., et al.</td>
+                                    <td>Urban Climate</td>
+                                    <td>January 2025</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Abstract</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Advancing battery technology for renewable energy storage: A review</td>
+                                    <td>Chen, M., et al.</td>
+                                    <td>Renewable Energy</td>
+                                    <td>December 2024</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Abstract</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Behavioral interventions for sustainable consumption: A meta-analysis</td>
+                                    <td>Smith, J., et al.</td>
+                                    <td>Journal of Environmental Psychology</td>
+                                    <td>November 2024</td>
+                                    <td><a href="#" class="btn btn-sm btn-outline-primary">Abstract</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-spinner me-2"></i> Load More Research
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 bg-light">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h3 mb-4">Stay Updated with New Resources</h2>
+                    <p class="mb-4">Subscribe to our monthly newsletter to receive the latest articles, guides, and research directly to your inbox.</p>
+                    <form class="newsletter-form mx-auto">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                            <button class="btn btn-success" type="submit">Subscribe</button>
+                        </div>
+                        <div class="form-check text-start ms-2">
+                            <input class="form-check-input" type="checkbox" id="newsletterConsent" required>
+                            <label class="form-check-label small text-muted" for="newsletterConsent">
+                                I agree to receive the EcoTracker newsletter and understand I can unsubscribe at any time.
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-brand d-flex align-items-center mb-3">
+                        <span class="eco-logo"><i class="fas fa-leaf"></i></span>
+                        <span class="ms-2 h5 mb-0">EcoTracker</span>
+                    </div>
+                    <p class="mb-4">Making sustainable living accessible, measurable, and community-driven.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Pages</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../index.html" class="text-white-50">Home</a></li>
+                        <li class="mb-2"><a href="dashboard.html" class="text-white-50">Dashboard</a></li>
+                        <li class="mb-2"><a href="calculator.html" class="text-white-50">Calculator</a></li>
+                        <li class="mb-2"><a href="challenges.html" class="text-white-50">Challenges</a></li>
+                        <li class="mb-2"><a href="community.html" class="text-white-50">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-lg-2 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="resources.html" class="text-white-50">Articles</a></li>
+                        <li class="mb-2"><a href="resources.html#videos" class="text-white-50">Videos</a></li>
+                        <li class="mb-2"><a href="resources.html#guides" class="text-white-50">Guides</a></li>
+                        <li class="mb-2"><a href="resources.html#research" class="text-white-50">Research</a></li>
+                        <li class="mb-2"><a href="about.html#faq" class="text-white-50">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="text-uppercase mb-4">Contact Us</h5>
+                    <div class="mb-3">
+                        <i class="fas fa-envelope me-2 text-success"></i>
+                        <a href="mailto:info@ecotracker.org" class="text-white-50">info@ecotracker.org</a>
+                    </div>
+                    <div class="mb-3">
+                        <i class="fas fa-phone me-2 text-success"></i>
+                        <span class="text-white-50">(555) 123-4567</span>
+                    </div>
+                    <div class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2 text-success"></i>
+                        <span class="text-white-50">123 Green Street, Eco City, EC 12345</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4 border-secondary">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="small text-white-50 mb-0">&copy; 2025 EcoTracker. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Privacy Policy</a></li>
+                        <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Terms of Use</a></li>
+                        <li class="list-inline-item"><span class="text-muted small">|</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/pages/resources.js"></script>
+ </body>
+ </html>
