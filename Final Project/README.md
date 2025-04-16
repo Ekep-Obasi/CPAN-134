@@ -2,18 +2,20 @@
 
 ## Project Overview
 
-EcoTracker is a comprehensive web application designed to help users track and reduce their environmental impact through personalized challenges, community engagement, and educational resources. The platform makes sustainable living accessible, measurable, and community-driven by providing tools for carbon footprint calculation, progress tracking, and social connection.
+EcoTracker is a web application designed to help users track and reduce their environmental impact through personalized challenge and educational resources. The platform makes sustainable living accessible, measurable, and community-driven by providing tools for carbon footprint calculation, and progress tracking.
 
-![EcoTracker Logo](assets/images/logo.png)
+![Landing Page](assets/images/image-landing.png)
+![Sign in](assets/images/signin.png)
+![Sign up](assets/images/signup.png)
+![Form Validation](assets/images/form-validation.png)
+![Table](assets/images/table.png)
+![Cards](assets/images/cards.png)
 
 ## Features
 
 - **Carbon Footprint Calculator**: Interactive assessment tool to measure personal environmental impact across multiple categories
 - **Personalized Challenges**: Targeted activities to reduce environmental footprint based on individual habits
-- **Progress Dashboard**: Visual representation of environmental impact reduction over time
-- **Community Hub**: Connect with like-minded individuals, share achievements, and participate in group challenges
 - **Educational Resources**: Access to articles, videos, guides, and research on sustainable living
-- **Achievement System**: Gamified experience with badges and rewards for completed challenges
 - **User Profiles**: Personalized pages to track individual progress and connect with friends
 
 ## Technologies Used
@@ -28,7 +30,7 @@ EcoTracker is a comprehensive web application designed to help users track and r
 ## Project Structure
 
 ```
-ecotracker/
+Final Project/
 ├── index.html                   # Homepage
 ├── pages/                       # Other HTML pages
 │   ├── calculator.html          # Carbon Calculator
@@ -72,47 +74,25 @@ The multi-step calculator collects data about transportation, home energy use, f
 ### 2. Challenge System
 Users can join challenges in various categories (transport, food, energy, waste, water) with different difficulty levels. Progress tracking and social sharing encourage completion.
 
-### 3. Community Features
-Social elements include profiles, friends/connections, groups, leaderboards, and activity feeds to create a supportive environment for sustainable living.
-
-### 4. Resource Library
+### 3. Resource Library
 Curated educational content including articles, videos, guides, and research to help users deepen their understanding of environmental issues and solutions.
 
 ## Setup and Installation
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/ecotracker.git
+git clone https://github.com/Ekep-Obasi/ecotracker.git
 ```
 
 2. Open the project in your code editor
 
 3. Launch with a local server:
 - Using VS Code's Live Server extension
-- Using Python: `python -m http.server`
-- Using Node.js: `npx serve`
 
-4. View in browser at `http://localhost:8000` or your server's designated port
-
-## Future Enhancements
-
-- Backend integration with user authentication
-- Mobile app versions for iOS and Android
-- Integration with smart home devices for automated data collection
-- AI-powered recommendations for more personalized challenge suggestions
-- Carbon offset marketplace for users to support verified environmental projects
+4. View in browser at your server's designated port
 
 ## Credits
-
-- Images: Unsplash and Pexels
+- Images: Unsplash and Pexels & Random Images on the internet
 - Icons: Font Awesome
 - Charts: Chart.js
 - Front-end Framework: Bootstrap 5
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-© 2025 EcoTracker. All rights reserved.
