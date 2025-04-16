@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // Generic form validation function
     function validateForm(formElement) {
         const inputs = formElement.querySelectorAll('input, textarea, select');
         let isValid = true;
         
         inputs.forEach(input => {
-            // Reset previous validation states
             removeValidationClasses(input);
             
             if (input.hasAttribute('required') && !input.value.trim()) {
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // If valid so far, add valid class
             if (input.value && !input.classList.contains('is-invalid')) {
                 input.classList.add('is-valid');
             }
@@ -42,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function markAsInvalid(input, message) {
         input.classList.add('is-invalid');
         
-        // Create or update the feedback message
         let feedback = input.nextElementSibling;
         if (!feedback || !feedback.classList.contains('invalid-feedback')) {
             feedback = document.createElement('div');
@@ -55,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function removeValidationClasses(input) {
         input.classList.remove('is-valid', 'is-invalid');
         
-        // Remove feedback message if it exists
         const feedback = input.nextElementSibling;
         if (feedback && feedback.classList.contains('invalid-feedback')) {
             feedback.textContent = '';
@@ -67,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(String(email).toLowerCase());
     }
     
-    // Apply validation to all forms with the data-validate attribute
     const forms = document.querySelectorAll('form[data-validate]');
     forms.forEach(form => {
         form.addEventListener('submit', function(e) {
@@ -77,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Real-time validation as user types
         const inputs = form.querySelectorAll('input, textarea, select');
         inputs.forEach(input => {
             input.addEventListener('blur', function() {
@@ -86,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Special validation for calculator form
     const calculatorForm = document.getElementById('calculatorForm');
     if (calculatorForm) {
         calculatorForm.addEventListener('submit', function(e) {
@@ -97,12 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Carbon calculator functions
     function calculateFootprint() {
-        // This would contain the actual calculation logic
-        // For the prototype, we'll use placeholder logic
-        
-        // Collect values from form
         const transportMode = document.getElementById('transportMode')?.value;
         const transportDistance = parseFloat(document.getElementById('transportDistance')?.value || 0);
         const householdSize = parseInt(document.getElementById('householdSize')?.value || 0);
@@ -110,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const dietType = document.getElementById('dietType')?.value;
         const wasteRecycling = document.getElementById('wasteRecycling')?.checked;
         
-        // Calculate footprint components (simplified for prototype)
         const transportEmissions = calculateTransportEmissions(transportMode, transportDistance);
         const housingEmissions = calculateHousingEmissions(householdSize, energyConsumption);
         const foodEmissions = calculateFoodEmissions(dietType);
@@ -237,14 +223,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const challengesList = document.getElementById('suggestedChallenges');
         if (!challengesList) return;
         
-        // Clear existing suggestions
         challengesList.innerHTML = '';
-        
-        // Get the highest emission category
+
         const categories = Object.entries(breakdown).sort((a, b) => b[1] - a[1]);
         const highestCategory = categories[0][0];
         
-        // Add challenge suggestions based on highest category
         const challengeSuggestions = {
             'transport': [
                 'Try public transportation for your commute',

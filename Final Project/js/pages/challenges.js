@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
-    // Filter toggle functionality
     const allCategoryCheckbox = document.getElementById('categoryAll');
     const categoryCheckboxes = document.querySelectorAll('input[type="checkbox"][id^="category"]:not(#categoryAll)');
     
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const allDurationCheckbox = document.getElementById('durationAll');
     const durationCheckboxes = document.querySelectorAll('input[type="checkbox"][id^="duration"]:not(#durationAll)');
     
-    // Category filtering
     if (allCategoryCheckbox) {
         allCategoryCheckbox.addEventListener('change', function() {
             categoryCheckboxes.forEach(checkbox => {
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Difficulty filtering
     if (allDifficultyCheckbox) {
         allDifficultyCheckbox.addEventListener('change', function() {
             difficultyCheckboxes.forEach(checkbox => {
@@ -45,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Duration filtering
     if (allDurationCheckbox) {
         allDurationCheckbox.addEventListener('change', function() {
             durationCheckboxes.forEach(checkbox => {
@@ -62,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Challenge search functionality
     const searchInput = document.getElementById('challengeSearch');
     const challengeCards = document.querySelectorAll('.challenge-card');
     
@@ -84,14 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Challenge detail modal dynamic content
     const challengeDetailModal = document.getElementById('challengeDetailModal');
     if (challengeDetailModal) {
         challengeDetailModal.addEventListener('show.bs.modal', function(event) {
             const button = event.relatedTarget;
             const card = button.closest('.challenge-card');
             
-            // Get challenge details from the clicked card
             const title = card.querySelector('.card-title').textContent;
             const description = card.querySelector('.card-text').textContent;
             const image = card.querySelector('.card-img-top').src;
@@ -101,17 +94,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const participants = card.querySelector('.participants .small').textContent;
             const impact = card.querySelector('.impact .small').textContent;
             
-            // Set modal content
             const modal = this;
             modal.querySelector('.modal-title').textContent = title;
             modal.querySelector('.challenge-detail-img').src = image;
             
-            // Set category badge color
             const categoryBadge = modal.querySelector('.badge');
             categoryBadge.textContent = category;
             categoryBadge.className = 'badge';
             
-            // Add appropriate class based on category
             switch (category.toLowerCase()) {
                 case 'food':
                     categoryBadge.classList.add('bg-primary');
@@ -132,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     categoryBadge.classList.add('bg-success');
             }
             
-            // Set other challenge metadata
             const metaItems = modal.querySelectorAll('.challenge-meta div');
             metaItems[1].querySelector('span').textContent = difficulty;
             metaItems[2].querySelector('span').textContent = duration;
@@ -141,15 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Create challenge form validation
     const createChallengeForm = document.getElementById('createChallengeForm');
     if (createChallengeForm) {
         createChallengeForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Form validation is handled by validation.js
-            
-            // Simulate form submission
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             
@@ -157,18 +142,14 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating...';
             
             setTimeout(() => {
-                // Show success message
                 const modal = bootstrap.Modal.getInstance(document.getElementById('createChallengeModal'));
                 modal.hide();
                 
-                // Reset button
                 submitButton.disabled = false;
                 submitButton.textContent = originalText;
                 
-                // Reset form
                 this.reset();
                 
-                // Show success alert
                 const alertHTML = `
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> Your challenge has been created and is pending approval.

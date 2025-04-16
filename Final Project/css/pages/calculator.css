@@ -8,8 +8,8 @@
 
 .calculator-illustration {
     max-height: 300px;
-    filter: drop-shadow(0 0 10px rgba(32, 201, 151, 0.3));
     animation: float 6s ease-in-out infinite;
+    border-radius: 12px;
 }
 
 /* Calculator form */

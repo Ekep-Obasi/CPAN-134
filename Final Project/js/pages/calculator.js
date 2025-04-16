@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     
-    // Step navigation
     const calculatorForm = document.getElementById('calculatorForm');
     const calculatorProgress = document.getElementById('calculatorProgress');
     const steps = document.querySelectorAll('.calculator-step');
@@ -12,21 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentStep = 1;
     const totalSteps = steps.length;
     
-    // Update progress bar
     function updateProgress() {
         const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
         calculatorProgress.style.width = `${progressPercentage}%`;
         calculatorProgress.setAttribute('aria-valuenow', progressPercentage);
     }
     
-    // Show specific step
     function showStep(stepNumber) {
-        // Hide all steps
+
         steps.forEach(step => {
             step.classList.remove('active');
         });
         
-        // Update step indicators
         stepButtons.forEach((button, index) => {
             if (index + 1 === stepNumber) {
                 button.classList.add('active');
@@ -35,22 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Show current step
         document.getElementById(`step${stepNumber}`).classList.add('active');
         
-        // Update progress
         currentStep = stepNumber;
         updateProgress();
     }
     
-    // Next step buttons
     nextButtons.forEach(button => {
         button.addEventListener('click', function() {
             if (currentStep < totalSteps) {
                 const currentStepElement = document.getElementById(`step${currentStep}`);
                 const inputs = currentStepElement.querySelectorAll('input[required], select[required]');
                 
-                // Basic validation before proceeding
                 let isValid = true;
                 inputs.forEach(input => {
                     if (!input.value) {
@@ -68,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Previous step buttons
     prevButtons.forEach(button => {
         button.addEventListener('click', function() {
             if (currentStep > 1) {
@@ -77,17 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Step indicators click
     stepButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
-            // Allow going back to previous steps, but require validation for going forward
             if (index + 1 < currentStep || validatePreviousSteps(index + 1)) {
                 showStep(index + 1);
             }
         });
     });
     
-    // Validate all steps up to the target step
     function validatePreviousSteps(targetStep) {
         let isValid = true;
         
@@ -106,12 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
     
-    // Form submission
     if (calculatorForm) {
         calculatorForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate final step
             const finalStepElement = document.getElementById(`step${totalSteps}`);
             const requiredInputs = finalStepElement.querySelectorAll('input[required], select[required]');
             let isValid = true;
@@ -131,27 +117,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Calculate and display footprint results
     function calculateFootprint() {
-        // Collect all form data
         const formData = {
-            // Transport
             transportMode: document.getElementById('transportMode').value,
             transportDistance: parseFloat(document.getElementById('transportDistance').value),
             flightFrequency: document.querySelector('input[name="flightFrequency"]:checked').value,
             
-            // Home
             householdSize: document.getElementById('householdSize').value,
             homeType: document.getElementById('homeType').value,
             energyConsumption: document.getElementById('energyConsumption').value,
             renewableEnergy: document.querySelector('input[name="renewableEnergy"]:checked').value,
             
-            // Food
             dietType: document.getElementById('dietType').value,
             localFood: document.querySelector('input[name="localFood"]:checked').value,
             foodWaste: document.querySelector('input[name="foodWaste"]:checked').value,
             
-            // Lifestyle
             shoppingHabits: document.querySelector('input[name="shoppingHabits"]:checked').value,
             wasteRecycling: document.getElementById('wasteRecycling').checked,
             wasteComposting: document.getElementById('wasteComposting').checked,
@@ -160,10 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
             waterSavingFullLoads: document.getElementById('waterSavingFullLoads').checked
         };
         
-        // Calculate individual components
-        // Note: These calculations are simplified for the demo
-        
-        // Transport emissions (tons CO2e)
         let transportEmissions = 0;
         const transportFactors = {
             'car': 0.2,
@@ -175,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         transportEmissions = (transportFactors[formData.transportMode] || 0.1) * formData.transportDistance * 52 / 1000;
         
-        // Add flight emissions
         const flightFactors = {
             'no': 0,
             'occasional': 0.5,
@@ -184,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         transportEmissions += flightFactors[formData.flightFrequency] || 0;
         
-        // Home emissions
         let homeEmissions = 0;
         const homeTypeFactors = {
             'apartment': 0.8,
@@ -211,7 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         (renewableFactors[formData.renewableEnergy] || 1.0) / 
                         Math.sqrt(formData.householdSize);
         
-        // Food emissions
         let foodEmissions = 0;
         const dietFactors = {
             'vegan': 0.8,
@@ -239,7 +212,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         (localFoodFactors[formData.localFood] || 1.0) * 
                         (wasteFactors[formData.foodWaste] || 1.0);
         
-        // Lifestyle/consumer goods emissions
         let lifestyleEmissions = 0;
         const shoppingFactors = {
             'minimal': 0.7,
@@ -249,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         lifestyleEmissions = (shoppingFactors[formData.shoppingHabits] || 1.0);
         
-        // Apply recycling and water conservation reductions
         if (formData.wasteRecycling) lifestyleEmissions *= 0.9;
         if (formData.wasteComposting) lifestyleEmissions *= 0.95;
         
@@ -260,10 +231,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         lifestyleEmissions *= waterReduction;
         
-        // Calculate total emissions
         const totalEmissions = transportEmissions + homeEmissions + foodEmissions + lifestyleEmissions;
         
-        // Update the results display
         displayResults(totalEmissions.toFixed(1), {
             transport: transportEmissions,
             home: homeEmissions,
@@ -271,21 +240,16 @@ document.addEventListener('DOMContentLoaded', function() {
             lifestyle: lifestyleEmissions
         });
         
-        // Show results section
         document.getElementById('calculatorResults').classList.remove('d-none');
         
-        // Scroll to results
         document.getElementById('calculatorResults').scrollIntoView({
             behavior: 'smooth'
         });
     }
     
-    // Display footprint results
     function displayResults(total, breakdown) {
-        // Update total emissions
         document.getElementById('totalEmissions').textContent = total;
         
-        // Update breakdown chart
         const ctx = document.getElementById('breakdownChart').getContext('2d');
         const breakdownChart = new Chart(ctx, {
             type: 'doughnut',
@@ -328,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Update comparison message
         const comparisonElement = document.getElementById('footprintComparison');
         const globalAverage = 4.7;
         const percentage = (((parseFloat(total) - globalAverage) / globalAverage) * 100).toFixed(1);
@@ -341,7 +304,6 @@ document.addEventListener('DOMContentLoaded', function() {
             comparisonElement.className = 'alert alert-warning';
         }
         
-        // Add suggested challenges based on highest emission category
         const categories = [
             { name: 'transport', value: breakdown.transport },
             { name: 'home', value: breakdown.home },
@@ -349,13 +311,10 @@ document.addEventListener('DOMContentLoaded', function() {
             { name: 'lifestyle', value: breakdown.lifestyle }
         ];
         
-        // Sort categories by emission value (highest first)
         categories.sort((a, b) => b.value - a.value);
         
-        // Get the highest emission category
         const highestCategory = categories[0].name;
         
-        // Add challenge suggestions based on highest category
         const challengeSuggestions = {
             'transport': [
                 'Try public transportation for your commute',

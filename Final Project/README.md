@@ -31,10 +31,8 @@ EcoTracker is a comprehensive web application designed to help users track and r
 ecotracker/
 ├── index.html                   # Homepage
 ├── pages/                       # Other HTML pages
-│   ├── dashboard.html           # User Dashboard
 │   ├── calculator.html          # Carbon Calculator
 │   ├── challenges.html          # Challenge Library
-│   ├── community.html           # Community Hub
 │   ├── resources.html           # Educational Resources
 │   ├── profile.html             # User Profile
 │   └── about.html               # About/Contact
@@ -42,7 +40,6 @@ ecotracker/
 │   ├── main.css                 # Main styles
 │   ├── components.css           # Reusable components
 │   └── pages/                   # Page-specific styles
-│       ├── dashboard.css
 │       ├── calculator.css
 │       └── ...
 ├── js/

@@ -144,6 +144,7 @@ a:hover {
 
 .hero-image {
     animation: float 6s ease-in-out infinite;
+    border-radius: 50px;
 }
 
 @keyframes float {

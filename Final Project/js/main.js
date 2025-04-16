@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Counter animation
     function animateCounters() {
         const counterElements = document.querySelectorAll('#userCounter, #challengeCounter, #co2Counter');
         counterElements.forEach(counter => {
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to check if element is in viewport
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
         return (
@@ -43,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
-    // Back to top button
     const backToTopButton = document.querySelector('.back-to-top');
     if (backToTopButton) {
         window.addEventListener('scroll', () => {
@@ -63,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Newsletter form submission
     const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
@@ -77,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulating API call
             setTimeout(() => {
                 messageContainer.innerHTML = '<div class="alert alert-success">Thank you for subscribing! Please check your email to confirm your subscription.</div>';
                 newsletterForm.reset();
@@ -85,26 +79,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle login form submission
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Simulate login process - would connect to backend in real app
+
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             
             if (email && password) {
-                // Redirect to dashboard
-                window.location.href = 'pages/dashboard.html';
+                window.location.href = 'pages/profile.html';
             }
         });
     }
 
-    // Handle signup form submission
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
-        // Password strength feedback
         const passwordInput = document.getElementById('signupPassword');
         const passwordFeedback = document.getElementById('passwordFeedback');
         
@@ -148,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const lastName = document.getElementById('lastName').value;
             const termsAgreement = document.getElementById('termsAgreement').checked;
             
-            // Basic validation
             if (!email || !password || !confirmPassword || !firstName || !lastName || !termsAgreement) {
                 alert('Please fill in all required fields.');
                 return;
@@ -159,12 +148,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate account creation - would connect to backend in real app
-            window.location.href = 'pages/dashboard.html';
+            window.location.href = 'pages/profile.html';
         });
     }
 
-    // Check if stats counter section is in viewport and activate animation
     const statsCounter = document.querySelector('.stats-counter');
     if (statsCounter) {
         let animated = false;
@@ -178,6 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         window.addEventListener('scroll', checkCounters);
-        checkCounters(); // Check on initial load
+        checkCounters();
     }
 });

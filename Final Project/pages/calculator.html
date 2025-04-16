@@ -5,23 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbon Calculator | EcoTracker</title>
     <meta name="description" content="Calculate your personal carbon footprint and find ways to reduce your environmental impact.">
-    
-    <!-- Favicon -->
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/pages/calculator.css">
@@ -45,16 +33,10 @@
                         <a class="nav-link" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="calculator.html">Carbon Calculator</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="challenges.html">Challenges</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="community.html">Community</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="resources.html">Resources</a>
@@ -66,8 +48,8 @@
                 <div class="ms-lg-3 d-flex align-items-center">
                     <div class="dropdown">
                         <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../assets/images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
-                            <span>Alex Johnson</span>
+                            <img src="../assets/images/our-story.jpeg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
+                            <span>Ekep Obasi</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
                             <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
@@ -100,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
-                    <img src="../assets/images/calculator-illustration.svg" alt="Carbon Calculator" class="img-fluid calculator-illustration">
+                    <img src="../assets/images/calculator-illustration.png" alt="Carbon Calculator" class="img-fluid calculator-illustration">
                 </div>
             </div>
         </div>
@@ -459,7 +441,6 @@
                                 <p class="mb-4">Ready to start reducing your carbon footprint?</p>
                                 <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                                     <a href="challenges.html" class="btn btn-success">Join a Challenge</a>
-                                    <a href="dashboard.html" class="btn btn-outline-primary">Go to Dashboard</a>
                                     <button type="button" class="btn btn-outline-secondary" onclick="window.print()">Print Results</button>
                                 </div>
                             </div>
@@ -497,14 +478,16 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-img-top video-thumbnail">
                             <img src="../assets/images/resource-video.jpg" alt="Video Thumbnail">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
+                            <a href="https://www.youtube.com/watch?v=KNLUzqW8IuA" target="_blank">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </a>
                         </div>
                         <div class="card-body">
                             <h3 class="h5 card-title">The Carbon Cycle Explained</h3>
                             <p class="card-text">Watch this informative video about how carbon moves through our environment.</p>
-                            <a href="resources.html#videos" class="icon-link">
+                            <a href="https://www.youtube.com/watch?v=KNLUzqW8IuA" target="_blank" class="icon-link">
                                 Watch Video
                                 <i class="fas fa-arrow-right ms-2"></i>
                             </a>
@@ -514,7 +497,7 @@
                 
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm">
-                        <img src="../assets/images/resource-guide.jpg" class="card-img-top" alt="Home Energy Guide">
+                        <img src="../assets/images/resource-guide.webp" class="card-img-top" alt="Home Energy Guide">
                         <div class="card-body">
                             <h3 class="h5 card-title">Home Energy Efficiency Guide</h3>
                             <p class="card-text">Practical tips for reducing your home energy consumption and carbon footprint.</p>
@@ -551,10 +534,8 @@
                     <h5 class="text-uppercase mb-4">Pages</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="../index.html" class="text-white-50">Home</a></li>
-                        <li class="mb-2"><a href="dashboard.html" class="text-white-50">Dashboard</a></li>
                         <li class="mb-2"><a href="calculator.html" class="text-white-50">Calculator</a></li>
                         <li class="mb-2"><a href="challenges.html" class="text-white-50">Challenges</a></li>
-                        <li class="mb-2"><a href="community.html" class="text-white-50">Community</a></li>
                     </ul>
                 </div>
                 
@@ -605,10 +586,8 @@
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Custom Scripts -->
     <script src="../js/main.js"></script>
     <script src="../js/validation.js"></script>
     <script src="../js/pages/calculator.js"></script>
